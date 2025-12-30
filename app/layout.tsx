@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://reelgrab.io'),
+  metadataBase: new URL('https://reelgrab.site'),
   robots: {
     index: true,
     follow: true,
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://reelgrab.io',
+    url: 'https://reelgrab.site',
     title: 'ReelGrab - Instagram Reels Downloader',
     description: 'Download Instagram Reels in HD quality instantly. Free, fast, no watermark.',
     siteName: 'ReelGrab',
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     images: ['/twitter-image.jpg'],
   },
   alternates: {
-    canonical: 'https://reelgrab.io',
+    canonical: 'https://reelgrab.site',
   },
   verification: {
     google: 'your-google-verification-code',
@@ -78,7 +78,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="canonical" href="https://reelgrab.io" />
+        <link rel="canonical" href="https://reelgrab.site" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -87,7 +87,7 @@ export default function RootLayout({
               "@type": "WebApplication",
               "name": "ReelGrab",
               "description": "Free Instagram Reels Downloader - Download Reels in HD",
-              "url": "https://reelgrab.io",
+              "url": "https://reelgrab.site",
               "applicationCategory": "MultimediaApplication",
               "operatingSystem": "All",
               "offers": {

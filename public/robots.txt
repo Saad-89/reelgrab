@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://reelgrab.io/sitemap.xml
+Sitemap: https://reelgrab.site/sitemap.xml
