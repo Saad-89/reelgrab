@@ -16,25 +16,3 @@ export default function Home() {
     </main>
   );
 }
-
-// import Header from '@/components/Header';
-// import Hero from '@/components/Hero';
-// import DownloadForm from '@/components/DownloadForm';
-// import HowItWorks from '@/components/HowItWorks';
-// import Benefits from '@/components/Benefits';
-// import FAQ from '@/components/FAQ';
-// import Footer from '@/components/Footer';
-
-// export default function Home() {
-//   return (
-//     <main className="min-h-screen">
-//       <Header />
-//       <Hero />
-//       <DownloadForm />
-//       <HowItWorks />
-//       <Benefits />
-//       <FAQ />
-//       <Footer />
-//     </main>
-//   );
-// }
