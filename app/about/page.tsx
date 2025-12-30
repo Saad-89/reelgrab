@@ -61,7 +61,7 @@ export default function AboutPage() {
                 We created ReelGrab to provide a simple, hassle-free solution for downloading Instagram Reels. Our goal is to offer a tool that is completely free, requires no login, and works seamlessly across all devices.
               </p>
               <p className="text-purple-100 text-lg leading-relaxed">
-                With over 10 million downloads and a 4.9-star rating, we've become the go-to platform for users who want to save and enjoy their favorite Instagram content offline.
+                With over 10 million downloads and a 4.9-star rating, we&apos;ve become the go-to platform for users who want to save and enjoy their favorite Instagram content offline.
               </p>
             </div>
           </div>
@@ -75,7 +75,7 @@ export default function AboutPage() {
                 How It Works
               </h2>
               <p className="text-purple-100 text-lg leading-relaxed mb-6">
-                ReelGrab uses Instagram's public API endpoints to fetch reel information and download links. We don't store any videos on our servers – everything is streamed directly to your device.
+                ReelGrab uses Instagram&apos;s public API endpoints to fetch reel information and download links. We don&apos;t store any videos on our servers – everything is streamed directly to your device.
               </p>
               <p className="text-purple-100 text-lg leading-relaxed">
                 This ensures your privacy and keeps our service fast and efficient. Your data is never stored or shared with third parties.
@@ -99,7 +99,7 @@ export default function AboutPage() {
                   'No watermarks on downloaded videos',
                   'Mobile-friendly – works on all devices',
                   'Lightning fast – downloads in seconds',
-                  'Privacy-focused – we don\'t store your data',
+                  'Privacy-focused – we don&apos;t store your data',
                   'Unlimited downloads – no restrictions'
                 ].map((feature, i) => (
                   <div key={i} className="flex items-start gap-3 text-purple-100">
@@ -117,7 +117,7 @@ export default function AboutPage() {
             <div className="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl rounded-3xl border border-white/20 p-8 md:p-12 text-center">
               <h2 className="text-3xl font-bold text-white mb-4">Get In Touch</h2>
               <p className="text-purple-200 mb-8 text-lg">
-                Have questions or feedback? We'd love to hear from you!
+                Have questions or feedback? We&apos;d love to hear from you!
               </p>
               <a 
                 href="mailto:saadyaqoob595@gmail.com" 
