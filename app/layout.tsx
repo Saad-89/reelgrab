@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     canonical: 'https://reelgrab.site',
   },
   verification: {
-    google: 'your-google-verification-code',
+    google: 'LiRvKdz3GTofHgxiXzDzjTh-hxZqJUt6wK7wxu536lM',
   },
 };
 
