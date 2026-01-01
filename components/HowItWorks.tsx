@@ -4,36 +4,33 @@ export default function HowItWorks() {
   const steps = [
     {
       icon: Link2,
-      title: 'Copy Link',
-      description: 'Open Instagram and copy the Reel URL from the share menu',
-      gradient: 'from-cyan-500 to-blue-500'
+      title: 'Copy Instagram Reel Link',
+      description: 'Open Instagram, find the Reel you want, and copy its URL from the share menu'
     },
     {
       icon: Clipboard,
-      title: 'Paste URL',
-      description: 'Paste the link in our download box above',
-      gradient: 'from-purple-500 to-pink-500'
+      title: 'Paste URL Above',
+      description: 'Paste the copied link into our download box at the top of this page'
     },
     {
       icon: Download,
-      title: 'Download',
-      description: 'Click download and enjoy your video in HD',
-      gradient: 'from-green-500 to-emerald-500'
+      title: 'Download & Enjoy',
+      description: 'Click download and save your video in high quality to your device'
     }
   ];
 
   return (
-    <section id="how-it-works" className="relative py-32 px-4">
+    <section id="how-it-works" className="py-20 px-4 bg-white">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 px-5 py-2 bg-white/5 backdrop-blur-xl rounded-full mb-6 border border-white/10">
-            <span className="text-sm font-bold text-purple-300">Simple Process</span>
-          </div>
-          <h2 className="text-5xl md:text-6xl font-black text-white mb-6">
-            How It Works
+        <div className="text-center mb-16">
+          <span className="inline-block px-4 py-2 bg-blue-50 rounded-full text-sm font-semibold text-blue-600 mb-4">
+            Simple Process
+          </span>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
+            How to Download Instagram Reels
           </h2>
-          <p className="text-xl text-purple-200 max-w-2xl mx-auto">
-            Download Instagram Reels in just 3 simple steps
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Save any Instagram Reel in just 3 easy steps
           </p>
         </div>
         
@@ -41,25 +38,16 @@ export default function HowItWorks() {
           {steps.map((step, i) => {
             const Icon = step.icon;
             return (
-              <div key={i} className="relative group">
-                {/* Connector Line */}
-                {i < steps.length - 1 && (
-                  <div className="hidden md:block absolute top-20 left-[60%] w-[80%] h-1 bg-gradient-to-r from-white/20 to-transparent z-0"></div>
-                )}
-
-                {/* Card */}
-                <div className="relative">
-                  <div className={`absolute -inset-1 bg-gradient-to-br ${step.gradient} rounded-3xl blur-2xl opacity-20 group-hover:opacity-40 transition-opacity`}></div>
-                  <div className="relative bg-white/5 backdrop-blur-2xl rounded-3xl p-8 border border-white/10 hover:border-white/30 transition-all hover:scale-105 shadow-2xl">
-                    <div className={`relative w-20 h-20 bg-gradient-to-br ${step.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-2xl`}>
-                      <Icon className="w-10 h-10 text-white" />
-                      <div className="absolute -top-3 -right-3 w-10 h-10 bg-white/10 backdrop-blur-xl rounded-full flex items-center justify-center border border-white/20 font-bold text-white text-lg">
-                        {i + 1}
-                      </div>
+              <div key={i} className="relative">
+                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-100 hover:border-blue-200 hover:shadow-lg transition-all">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6 shadow-lg relative">
+                    <Icon className="w-8 h-8 text-white" />
+                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center border-2 border-blue-500 font-bold text-blue-600">
+                      {i + 1}
                     </div>
-                    <h3 className="text-2xl font-bold mb-3 text-white">{step.title}</h3>
-                    <p className="text-purple-200 leading-relaxed">{step.description}</p>
                   </div>
+                  <h3 className="text-xl font-bold mb-3 text-gray-900">{step.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{step.description}</p>
                 </div>
               </div>
             );
@@ -69,4 +57,77 @@ export default function HowItWorks() {
     </section>
   );
 }
+
+
+// import { Link2, Clipboard, Download } from 'lucide-react';
+
+// export default function HowItWorks() {
+//   const steps = [
+//     {
+//       icon: Link2,
+//       title: 'Copy Link',
+//       description: 'Open Instagram and copy the Reel URL from the share menu',
+//       gradient: 'from-cyan-500 to-blue-500'
+//     },
+//     {
+//       icon: Clipboard,
+//       title: 'Paste URL',
+//       description: 'Paste the link in our download box above',
+//       gradient: 'from-purple-500 to-pink-500'
+//     },
+//     {
+//       icon: Download,
+//       title: 'Download',
+//       description: 'Click download and enjoy your video in HD',
+//       gradient: 'from-green-500 to-emerald-500'
+//     }
+//   ];
+
+//   return (
+//     <section id="how-it-works" className="relative py-32 px-4">
+//       <div className="max-w-6xl mx-auto">
+//         <div className="text-center mb-20">
+//           <div className="inline-flex items-center gap-2 px-5 py-2 bg-white/5 backdrop-blur-xl rounded-full mb-6 border border-white/10">
+//             <span className="text-sm font-bold text-purple-300">Simple Process</span>
+//           </div>
+//           <h2 className="text-5xl md:text-6xl font-black text-white mb-6">
+//             How It Works
+//           </h2>
+//           <p className="text-xl text-purple-200 max-w-2xl mx-auto">
+//             Download Instagram Reels in just 3 simple steps
+//           </p>
+//         </div>
+        
+//         <div className="grid md:grid-cols-3 gap-8">
+//           {steps.map((step, i) => {
+//             const Icon = step.icon;
+//             return (
+//               <div key={i} className="relative group">
+//                 {/* Connector Line */}
+//                 {i < steps.length - 1 && (
+//                   <div className="hidden md:block absolute top-20 left-[60%] w-[80%] h-1 bg-gradient-to-r from-white/20 to-transparent z-0"></div>
+//                 )}
+
+//                 {/* Card */}
+//                 <div className="relative">
+//                   <div className={`absolute -inset-1 bg-gradient-to-br ${step.gradient} rounded-3xl blur-2xl opacity-20 group-hover:opacity-40 transition-opacity`}></div>
+//                   <div className="relative bg-white/5 backdrop-blur-2xl rounded-3xl p-8 border border-white/10 hover:border-white/30 transition-all hover:scale-105 shadow-2xl">
+//                     <div className={`relative w-20 h-20 bg-gradient-to-br ${step.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-2xl`}>
+//                       <Icon className="w-10 h-10 text-white" />
+//                       <div className="absolute -top-3 -right-3 w-10 h-10 bg-white/10 backdrop-blur-xl rounded-full flex items-center justify-center border border-white/20 font-bold text-white text-lg">
+//                         {i + 1}
+//                       </div>
+//                     </div>
+//                     <h3 className="text-2xl font-bold mb-3 text-white">{step.title}</h3>
+//                     <p className="text-purple-200 leading-relaxed">{step.description}</p>
+//                   </div>
+//                 </div>
+//               </div>
+//             );
+//           })}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
 
