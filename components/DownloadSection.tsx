@@ -1,3 +1,4 @@
+// components/DownloadSection.tsx
 'use client';
 
 import { useState } from 'react';
@@ -63,11 +64,35 @@ export default function DownloadSection() {
 
     setIsDownloading(true);
     setDownloadProgress(0);
+    setError('');
+
+    console.log('🚀 Starting download process...');
+    console.log('📎 Video URL:', videoData.url);
 
     try {
-      const response = await fetch(videoData.url);
+      // Use server-side proxy to bypass CORS
+      console.log('📥 Using proxy to download...');
+      
+      const response = await fetch('/api/proxy-download', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ url: videoData.url }),
+      });
+
+      console.log('✅ Proxy response status:', response.status);
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Proxy download failed');
+      }
+
+      // Read the response as a stream with progress
       const reader = response.body?.getReader();
       const contentLength = +(response.headers.get('Content-Length') || 0);
+
+      console.log('📊 Content-Length:', contentLength || 'Unknown');
 
       if (reader) {
         let receivedLength = 0;
@@ -80,29 +105,86 @@ export default function DownloadSection() {
           if (value) {
             chunks.push(value);
             receivedLength += value.length;
+            
             if (contentLength > 0) {
-              setDownloadProgress(Math.round((receivedLength / contentLength) * 100));
+              const progress = Math.round((receivedLength / contentLength) * 100);
+              setDownloadProgress(progress);
+              console.log(`⏳ Progress: ${progress}%`);
+            } else {
+              const estimatedProgress = Math.min(90, Math.round((receivedLength / 1000000) * 50));
+              setDownloadProgress(estimatedProgress);
             }
           }
         }
 
+        console.log('✅ Download complete, creating blob...');
+
         const blob = new Blob(chunks as BlobPart[], { type: 'video/mp4' });
         const blobUrl = URL.createObjectURL(blob);
+        
+        console.log('💾 Triggering download...');
+        
         const a = document.createElement('a');
         a.href = blobUrl;
         a.download = `reelgrab_${Date.now()}.mp4`;
+        a.style.display = 'none';
         document.body.appendChild(a);
         a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(blobUrl);
+        
+        // Cleanup
+        setTimeout(() => {
+          document.body.removeChild(a);
+          URL.revokeObjectURL(blobUrl);
+          console.log('🧹 Cleanup complete');
+        }, 100);
 
         setDownloadProgress(100);
-        setIsDownloading(false);
-        setStep('success');
+        console.log('🎉 Download successful!');
+        
+        setTimeout(() => {
+          setIsDownloading(false);
+          setStep('success');
+        }, 500);
+        
+        return;
       }
-    } catch (err) {
-      setError('Download failed. Please try right-clicking the video and selecting "Save video as..."');
-      setIsDownloading(false);
+
+    } catch (err: any) {
+      console.error('❌ Proxy download failed:', err);
+      console.error('Error details:', {
+        message: err.message,
+        name: err.name
+      });
+      
+      // Fallback: Try direct link method (last resort)
+      console.log('🔄 Trying direct link as fallback...');
+      
+      try {
+        const a = document.createElement('a');
+        a.href = videoData.url;
+        a.download = `reelgrab_${Date.now()}.mp4`;
+        a.setAttribute('target', '_self');
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.click();
+        
+        setTimeout(() => {
+          document.body.removeChild(a);
+        }, 100);
+
+        console.log('✅ Direct link triggered');
+        
+        setDownloadProgress(100);
+        setTimeout(() => {
+          setIsDownloading(false);
+          setStep('success');
+        }, 1000);
+
+      } catch (linkError) {
+        console.error('❌ Direct link failed:', linkError);
+        setError('Unable to download automatically. Please right-click the video above and select "Save video as..."');
+        setIsDownloading(false);
+      }
     }
   };
 
@@ -218,14 +300,23 @@ export default function DownloadSection() {
                       src={videoData.url}
                       poster={videoData.thumbnail}
                       controls
+                      controlsList="nodownload"
                       className="w-full h-full"
                       preload="metadata"
+                      playsInline
                     />
                   </div>
 
                   {videoData.title && (
                     <div className="bg-gray-50 rounded-xl p-4">
                       <p className="text-sm text-gray-700 line-clamp-2">{videoData.title}</p>
+                    </div>
+                  )}
+
+                  {error && (
+                    <div className="flex items-center gap-3 text-yellow-700 bg-yellow-50 px-5 py-4 rounded-xl border border-yellow-200">
+                      <span className="text-2xl">💡</span>
+                      <span className="text-sm font-semibold">{error}</span>
                     </div>
                   )}
 
@@ -272,6 +363,12 @@ export default function DownloadSection() {
                       </div>
                     </div>
                   )}
+
+                  <div className="bg-blue-50 rounded-xl p-4">
+                    <p className="text-xs text-gray-600 text-center">
+                      💡 <strong>Tip:</strong> If download doesn't start, right-click the video and select "Save video as..."
+                    </p>
+                  </div>
                 </div>
               )}
 
@@ -299,10 +396,6 @@ export default function DownloadSection() {
     </>
   );
 }
-
-
-
-
 
 // 'use client';
 

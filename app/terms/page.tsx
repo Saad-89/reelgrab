@@ -1,10 +1,11 @@
-import { Video, FileCheck, UserCheck, Shield, AlertTriangle, Scale, Ban, RefreshCw, XCircle, Gavel, Mail } from 'lucide-react';
+import { Video, FileCheck, UserCheck, Shield, AlertTriangle, Scale, Ban, RefreshCw, XCircle, Gavel } from 'lucide-react';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service - ReelGrab',
-  description: 'Terms of service for ReelGrab Instagram Reels Downloader.',
+  title: 'Terms of Service - ReelGrab | Legal Terms',
+  description: 'Read ReelGrab\'s terms of service. Understand your rights and responsibilities when using our Instagram Reels downloader.',
 };
 
 export default function TermsPage() {
@@ -12,185 +13,234 @@ export default function TermsPage() {
     {
       icon: FileCheck,
       title: '1. Acceptance of Terms',
-      content: 'By accessing and using ReelGrab, you accept and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our service.',
+      content: 'By accessing and using ReelGrab ("the Service"), you accept and agree to be bound by these Terms of Service. If you do not agree to these terms, please discontinue use of our service immediately.',
       list: []
     },
     {
       icon: UserCheck,
       title: '2. Description of Service',
-      content: 'ReelGrab provides a free tool to download public Instagram Reels. The service is provided "as is" without warranties of any kind, either express or implied.',
+      content: 'ReelGrab is a free online tool that allows users to download publicly available Instagram Reels. The service is provided "as is" without warranties of any kind, either express or implied. We reserve the right to modify or discontinue the service at any time.',
       list: []
     },
     {
       icon: Shield,
       title: '3. User Responsibilities',
-      content: 'You agree to:',
+      content: 'When using ReelGrab, you agree to:',
       list: [
-        'Use the service only for lawful purposes',
-        'Respect copyright laws and intellectual property rights',
-        'Only download content you have permission to use',
-        'Comply with Instagram\'s Terms of Service',
-        'Not use the service to infringe on others\' rights',
-        'Not attempt to abuse, hack, or disrupt the service'
+        'Use the service only for lawful, personal, non-commercial purposes',
+        'Respect all applicable copyright laws and intellectual property rights',
+        'Only download content you have explicit permission to use',
+        'Comply with Instagram\'s Terms of Service and community guidelines',
+        'Not use the service to infringe on others\' rights or privacy',
+        'Not attempt to abuse, hack, reverse engineer, or disrupt the service',
+        'Not use automated tools or bots to access the service',
+        'Accept full responsibility for your use of downloaded content'
       ]
     },
     {
       icon: Scale,
-      title: '4. Intellectual Property',
-      content: 'You are responsible for ensuring you have the necessary rights and permissions to download and use any content. ReelGrab does not claim ownership of any content downloaded through our service.',
-      list: []
+      title: '4. Intellectual Property & Copyright',
+      content: 'Important copyright information:',
+      list: [
+        'All downloaded content remains the property of its original creators',
+        'You are responsible for obtaining necessary rights and permissions',
+        'ReelGrab does not claim ownership of any downloaded content',
+        'We respect intellectual property rights and expect users to do the same',
+        'Commercial use of downloaded content may require explicit permission',
+        'Users must comply with applicable copyright and trademark laws'
+      ]
     },
     {
       icon: Ban,
       title: '5. Prohibited Uses',
-      content: 'You may not use ReelGrab to:',
+      content: 'You may NOT use ReelGrab to:',
       list: [
-        'Download content for commercial use without permission',
-        'Violate copyright or trademark laws',
-        'Distribute malicious software or code',
+        'Download content for commercial purposes without proper authorization',
+        'Violate copyright, trademark, or other intellectual property laws',
+        'Download private or restricted content without permission',
+        'Distribute, sell, or monetize downloaded content illegally',
+        'Harass, defame, or harm others through misuse of downloaded content',
+        'Distribute malicious software, viruses, or harmful code',
         'Impersonate others or misrepresent your affiliation',
-        'Engage in any activity that disrupts the service'
+        'Engage in any activity that disrupts or damages the service'
       ]
     },
     {
       icon: AlertTriangle,
       title: '6. Disclaimer of Warranties',
-      content: 'ReelGrab is provided "as is" without any warranties. We do not guarantee:',
+      content: 'ReelGrab is provided "AS IS" and "AS AVAILABLE" without any warranties. We do not guarantee:',
       list: [
-        'Uninterrupted or error-free service',
-        'Accuracy or reliability of results',
-        'Availability of specific content',
-        'Compatibility with all devices or browsers'
+        'Uninterrupted, error-free, or secure service operation',
+        'Accuracy, reliability, or quality of results',
+        'Availability of specific content or Instagram posts',
+        'Compatibility with all devices, browsers, or operating systems',
+        'That the service will meet your specific requirements',
+        'That defects or errors will be corrected promptly'
       ]
     },
     {
       icon: Shield,
       title: '7. Limitation of Liability',
-      content: 'ReelGrab and its operators shall not be liable for any damages arising from:',
+      content: 'To the fullest extent permitted by law, ReelGrab and its operators shall NOT be liable for:',
       list: [
-        'Use or inability to use the service',
-        'Unauthorized access to your data',
-        'Errors or omissions in content',
-        'Any other matter related to the service'
+        'Any direct, indirect, incidental, or consequential damages',
+        'Loss of profits, data, or business opportunities',
+        'Damages arising from use or inability to use the service',
+        'Unauthorized access to or alteration of your data',
+        'Errors, omissions, or inaccuracies in content',
+        'User misconduct or copyright infringement',
+        'Third-party actions or content',
+        'Service interruptions or technical failures'
       ]
     },
     {
       icon: RefreshCw,
       title: '8. Service Modifications',
-      content: 'We reserve the right to modify, suspend, or discontinue the service at any time without notice. We may also update these terms periodically.',
-      list: []
+      content: 'We reserve the right to:',
+      list: [
+        'Modify, suspend, or discontinue the service at any time',
+        'Update these terms periodically without prior notice',
+        'Change features, functionality, or service limits',
+        'Implement new restrictions or requirements',
+        'Continued use after modifications constitutes acceptance'
+      ]
     },
     {
       icon: XCircle,
       title: '9. Termination',
-      content: 'We reserve the right to terminate or restrict your access to the service if you violate these terms or engage in any conduct we deem harmful to the service or other users.',
-      list: []
+      content: 'We reserve the right to terminate or restrict your access if you:',
+      list: [
+        'Violate these terms or any applicable laws',
+        'Engage in conduct harmful to the service or other users',
+        'Attempt to abuse, hack, or exploit the service',
+        'Use the service for illegal or unauthorized purposes',
+        'Termination may occur without warning at our sole discretion'
+      ]
     },
     {
       icon: Gavel,
       title: '10. Governing Law',
-      content: 'These terms shall be governed by and construed in accordance with applicable laws. Any disputes shall be resolved in the appropriate jurisdiction.',
+      content: 'These terms shall be governed by and construed in accordance with applicable laws. Any disputes arising from these terms or use of the service shall be resolved through appropriate legal channels in the relevant jurisdiction.',
       list: []
     }
   ];
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
+    <main className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Header */}
-      <header className="sticky top-0 z-50 backdrop-blur-2xl bg-white/5 border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-2xl blur-lg opacity-75"></div>
-              <div className="relative w-12 h-12 bg-gradient-to-br from-cyan-400 via-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-2xl">
-                <Video className="w-7 h-7 text-white" />
-              </div>
+      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-2">
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
+              <Video className="w-6 h-6 text-white" />
             </div>
-            <span className="text-2xl font-black bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent">
-              ReelGrab
-            </span>
+            <span className="text-xl font-bold text-gray-900">ReelGrab</span>
           </Link>
-          <nav className="hidden md:flex gap-8 text-sm font-semibold">
-            <Link href="/" className="text-white/70 hover:text-white transition-colors">Home</Link>
-            <Link href="/about" className="text-white/70 hover:text-white transition-colors">About</Link>
+          <nav className="hidden md:flex gap-6 text-sm font-medium">
+            <Link href="/" className="text-gray-600 hover:text-blue-600 transition-colors">Home</Link>
+            <Link href="/blog" className="text-gray-600 hover:text-blue-600 transition-colors">Blog</Link>
+            <Link href="/guides" className="text-gray-600 hover:text-blue-600 transition-colors">Guides</Link>
+            <Link href="/about" className="text-gray-600 hover:text-blue-600 transition-colors">About</Link>
           </nav>
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="relative py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-5 py-2 bg-white/5 backdrop-blur-xl rounded-full mb-6 border border-white/10">
-            <Gavel className="w-5 h-5 text-blue-400" />
-            <span className="text-sm font-bold text-white">Legal Terms</span>
-          </div>
-          <h1 className="text-5xl md:text-6xl font-black text-white mb-4">Terms of Service</h1>
-          <p className="text-purple-200">Last updated: December 30, 2025</p>
-        </div>
-      </section>
-
       {/* Main Content */}
-      <section className="relative px-4 pb-20">
-        <div className="max-w-4xl mx-auto space-y-8">
+      <section className="py-20 px-4">
+        <div className="max-w-4xl mx-auto">
           
-          {sections.map((section, i) => {
-            const Icon = section.icon;
-            return (
-              <div key={i} className="relative">
-                <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-3xl blur-2xl opacity-20"></div>
-                <div className="relative bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 p-8">
-                  <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
-                    <Icon className="w-7 h-7 text-purple-400" />
-                    {section.title}
-                  </h2>
-                  <p className="text-purple-100 leading-relaxed mb-4">{section.content}</p>
+          {/* Hero */}
+          <div className="text-center mb-12">
+            <span className="inline-block px-4 py-2 bg-blue-50 rounded-full text-sm font-semibold text-blue-600 mb-4 flex items-center gap-2 w-fit mx-auto">
+              <Gavel className="w-4 h-4" />
+              Legal Terms
+            </span>
+            <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
+              Terms of Service
+            </h1>
+            <p className="text-xl text-gray-600">
+              Last updated: January 2, 2025
+            </p>
+          </div>
+
+          {/* Introduction */}
+          <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 md:p-12 mb-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">Please Read Carefully</h2>
+            <div className="text-gray-700 leading-relaxed space-y-4">
+              <p>
+                These Terms of Service govern your use of ReelGrab. By using our service, you acknowledge that you have read, understood, and agree to be bound by these terms.
+              </p>
+              <p>
+                These terms include important information about your legal rights, remedies, and obligations. Please read them carefully before using our service.
+              </p>
+            </div>
+          </div>
+
+          {/* Sections */}
+          <div className="space-y-8">
+            {sections.map((section, i) => {
+              const Icon = section.icon;
+              return (
+                <div key={i} className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 md:p-12">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                      <Icon className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <h2 className="text-2xl font-bold text-gray-900">{section.title}</h2>
+                  </div>
+                  <p className="text-gray-700 leading-relaxed mb-4">{section.content}</p>
                   {section.list.length > 0 && (
-                    <ul className="space-y-2">
+                    <ul className="space-y-3">
                       {section.list.map((item, j) => (
-                        <li key={j} className="flex items-start gap-3 text-purple-100">
-                          <span className="text-purple-400 mt-1">•</span>
+                        <li key={j} className="flex items-start gap-3 text-gray-700">
+                          <span className="text-blue-600 mt-1 font-bold">•</span>
                           <span>{item}</span>
                         </li>
                       ))}
                     </ul>
                   )}
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
 
-          {/* Contact */}
-          {/* <div className="relative">
-            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-3xl blur-2xl opacity-30"></div>
-            <div className="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl rounded-3xl border border-white/20 p-8 text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-cyan-400 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl">
-                <Mail className="w-8 h-8 text-white" />
+          {/* Important Notice */}
+          <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 md:p-12 mt-8">
+            <div className="flex items-start gap-4">
+              <AlertTriangle className="w-10 h-10 text-red-600 flex-shrink-0 mt-1" />
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">Important Legal Notice</h2>
+                <div className="text-gray-700 leading-relaxed space-y-4">
+                  <p>
+                    By using ReelGrab, you acknowledge and accept full responsibility for your use of the service and any content you download. You agree to respect copyright laws and obtain proper permissions before reusing any content.
+                  </p>
+                  <p>
+                    ReelGrab is a tool provided for convenience. We do not endorse copyright infringement and strongly encourage all users to respect intellectual property rights and use the service responsibly.
+                  </p>
+                </div>
               </div>
-              <h2 className="text-2xl font-bold text-white mb-4">Questions About Terms?</h2>
-              <p className="text-purple-200 mb-6">
-                For questions about these terms, contact us at{' '}
-                <a href="mailto:legal@reelgrab.io" className="text-cyan-400 hover:text-cyan-300 transition-colors font-semibold">
-                  legal@reelgrab.io
-                </a>
-              </p>
             </div>
-          </div> */}
+          </div>
+
+          {/* Contact CTA */}
+          <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl shadow-lg p-8 md:p-12 mt-8 text-white text-center">
+            <h2 className="text-3xl font-bold mb-4">Questions About These Terms?</h2>
+            <p className="text-blue-100 mb-6 text-lg">
+              If you have questions about these terms of service, please contact us through our about page.
+            </p>
+            <Link 
+              href="/about" 
+              className="inline-block bg-white text-blue-600 font-semibold px-8 py-4 rounded-xl hover:bg-gray-100 transition-all shadow-lg"
+            >
+              Contact Us
+            </Link>
+          </div>
 
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="relative py-12 px-4 border-t border-white/10">
-        <div className="max-w-6xl mx-auto text-center">
-          <div className="flex justify-center gap-6 text-sm mb-4">
-            <Link href="/" className="text-purple-200 hover:text-white transition-colors">Home</Link>
-            <Link href="/about" className="text-purple-200 hover:text-white transition-colors">About</Link>
-            <Link href="/privacy-policy" className="text-purple-200 hover:text-white transition-colors">Privacy</Link>
-            <Link href="/disclaimer" className="text-purple-200 hover:text-white transition-colors">Disclaimer</Link>
-          </div>
-          <p className="text-xs text-purple-400">© 2025 ReelGrab. All rights reserved.</p>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }
+
