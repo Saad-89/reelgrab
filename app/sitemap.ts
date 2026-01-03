@@ -89,6 +89,78 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
+{
+  url: `${baseUrl}/blog/brand-partnerships-instagram`,
+  lastModified: '2024-12-18',
+  changeFrequency: 'monthly',
+  priority: 0.8,
+},
+{
+  url: `${baseUrl}/blog/content-creation-tools`,
+  lastModified: '2024-12-17',
+  changeFrequency: 'monthly',
+  priority: 0.8,
+},
+{
+  url: `${baseUrl}/blog/copyright-law-instagram-creators`,
+  lastModified: '2025-01-03',
+  changeFrequency: 'monthly',
+  priority: 0.9,
+},
+{
+  url: `${baseUrl}/blog/grow-instagram-following`,
+  lastModified: '2024-12-22',
+  changeFrequency: 'monthly',
+  priority: 0.9,
+},
+{
+  url: `${baseUrl}/blog/instagram-analytics-guide`,
+  lastModified: '2024-12-23',
+  changeFrequency: 'monthly',
+  priority: 0.8,
+},
+{
+  url: `${baseUrl}/blog/instagram-business-account`,
+  lastModified: '2024-12-16',
+  changeFrequency: 'monthly',
+  priority: 0.8,
+},
+{
+  url: `${baseUrl}/blog/instagram-content-calendar`,
+  lastModified: '2024-12-21',
+  changeFrequency: 'monthly',
+  priority: 0.8,
+},
+{
+  url: `${baseUrl}/blog/instagram-reels-hooks`,
+  lastModified: '2025-01-02',
+  changeFrequency: 'monthly',
+  priority: 0.9,
+},
+{
+  url: `${baseUrl}/blog/instagram-reels-mistakes`,
+  lastModified: '2024-12-19',
+  changeFrequency: 'monthly',
+  priority: 0.8,
+},
+{
+  url: `${baseUrl}/blog/instagram-reels-monetization-guide`,
+  lastModified: '2025-01-02',
+  changeFrequency: 'monthly',
+  priority: 0.9,
+},
+{
+  url: `${baseUrl}/blog/instagram-seo-guide`,
+  lastModified: '2024-12-20',
+  changeFrequency: 'monthly',
+  priority: 0.8,
+},
+{
+  url: `${baseUrl}/blog/use-instagram-reels-legally`,
+  lastModified: '2025-01-03',
+  changeFrequency: 'monthly',
+  priority: 0.9,
+},
 
     // All Guide pages - Medium-high priority
     {
@@ -116,7 +188,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/guides/instagram-hashtag-strategy`,
+      url: `${baseUrl}/guides//instagram-reels-guide-beginners`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.8,
@@ -181,40 +253,3 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 }
-
-// import { MetadataRoute } from 'next';
-
-// export default function sitemap(): MetadataRoute.Sitemap {
-//   return [
-//     {
-//       url: 'https://reelgrab.site',
-//       lastModified: new Date(),
-//       changeFrequency: 'daily',
-//       priority: 1,
-//     },
-//     {
-//       url: 'https://reelgrab.site/about',
-//       lastModified: new Date(),
-//       changeFrequency: 'monthly',
-//       priority: 0.8,
-//     },
-//     {
-//       url: 'https://reelgrab.site/privacy-policy',
-//       lastModified: new Date(),
-//       changeFrequency: 'monthly',
-//       priority: 0.5,
-//     },
-//     {
-//       url: 'https://reelgrab.site/terms',
-//       lastModified: new Date(),
-//       changeFrequency: 'monthly',
-//       priority: 0.5,
-//     },
-//     {
-//       url: 'https://reelgrab.site/disclaimer',
-//       lastModified: new Date(),
-//       changeFrequency: 'monthly',
-//       priority: 0.5,
-//     },
-//   ];
-// }
