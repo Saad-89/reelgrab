@@ -248,12 +248,17 @@ export async function POST(request: NextRequest) {
     console.log('🆔 Reel ID:', reelId);
     console.log('========================================\n');
 
-    // Try all methods in sequence
-    const methods = [
-      () => downloadViaRapidAPI(url),
-      () => downloadViaOEmbed(reelId),
-      () => downloadViaDirectScrape(reelId),
-    ];
+    // Try all methods in sequence (skip RapidAPI if key not configured)
+    const methods = [];
+    
+    // Only add RapidAPI if key is configured
+    if (process.env.RAPIDAPI_KEY) {
+      methods.push(() => downloadViaRapidAPI(url));
+    }
+    
+    // Always try fallback methods
+    methods.push(() => downloadViaOEmbed(reelId));
+    methods.push(() => downloadViaDirectScrape(reelId));
 
     let lastError: any = null;
 

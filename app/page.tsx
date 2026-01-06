@@ -1,26 +1,10 @@
-import dynamic from 'next/dynamic';
+'use client';
+
 import DownloadSection from '@/components/DownloadSection';
-
-// Lazy load below-the-fold components for better performance
-const BlogStrip = dynamic(() => import('@/components/BlogStrip'), {
-  loading: () => null,
-  ssr: true,
-});
-
-const HowItWorks = dynamic(() => import('@/components/HowItWorks'), {
-  loading: () => null,
-  ssr: true,
-});
-
-const FAQ = dynamic(() => import('@/components/FAQ'), {
-  loading: () => null,
-  ssr: true,
-});
-
-const Footer = dynamic(() => import('@/components/Footer'), {
-  loading: () => null,
-  ssr: true,
-});
+import HowItWorks from '@/components/HowItWorks';
+import FAQ from '@/components/FAQ';
+import Footer from '@/components/Footer';
+import BlogStrip from '@/components/BlogStrip';
 
 export default function Home() {
   return (

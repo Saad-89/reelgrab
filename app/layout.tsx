@@ -114,21 +114,21 @@ export default function RootLayout({
         
         {/* Theme Color is now handled by viewport export */}
         
-        {/* Google AdSense - Defer to reduce blocking */}
+        {/* Google AdSense - Load after interactive for better performance */}
         <meta name="google-adsense-account" content="ca-pub-2561131168086064" />
         <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2561131168086064"
           crossOrigin="anonymous"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
         />
         
-        {/* Google Analytics - Load after page is fully loaded */}
+        {/* Google Analytics - Load after interactive */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-1GWW9CCNPR"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
         />
-        <Script id="google-analytics" strategy="lazyOnload">
+        <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
