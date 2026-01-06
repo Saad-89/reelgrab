@@ -25,15 +25,21 @@ function rateLimit(ip: string): boolean {
 }
 
 function extractReelId(url: string): string | null {
+  // Clean URL - remove query params and fragments
+  const cleanUrl = url.split('?')[0].split('#')[0];
+  
   const patterns = [
     /instagram\.com\/reel\/([A-Za-z0-9_-]+)/,
     /instagram\.com\/p\/([A-Za-z0-9_-]+)/,
     /instagram\.com\/tv\/([A-Za-z0-9_-]+)/,
+    /instagram\.com\/reels\/([A-Za-z0-9_-]+)/,
   ];
 
   for (const pattern of patterns) {
-    const match = url.match(pattern);
-    if (match) return match[1];
+    const match = cleanUrl.match(pattern);
+    if (match && match[1]) {
+      return match[1];
+    }
   }
   return null;
 }
@@ -111,9 +117,20 @@ async function downloadViaOEmbed(reelId: string) {
   try {
     console.log('🌐 Method 2: Instagram oEmbed API');
     
-    const oembed = await fetch(`https://www.instagram.com/p/${reelId}/embed/captioned/`);
+    const oembed = await fetch(`https://www.instagram.com/p/${reelId}/embed/captioned/`, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+        'Accept-Language': 'en-US,en;q=0.9',
+        'Referer': 'https://www.instagram.com/',
+        'Accept-Encoding': 'gzip, deflate, br',
+      },
+    });
     
-    if (!oembed.ok) throw new Error('oEmbed failed');
+    if (!oembed.ok) {
+      console.error(`oEmbed status: ${oembed.status}`);
+      throw new Error(`oEmbed failed: ${oembed.status}`);
+    }
 
     const html = await oembed.text();
 
@@ -157,25 +174,62 @@ async function downloadViaOEmbed(reelId: string) {
 // FALLBACK 2: Direct Instagram page scraping
 async function downloadViaDirectScrape(reelId: string) {
   try {
-    console.log('🔍 Method 3: Direct Page Scraping');
+    console.log('🔍 Method 2: Direct Page Scraping');
     
-    const response = await fetch(`https://www.instagram.com/p/${reelId}/`, {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-        'Accept-Language': 'en-US,en;q=0.9',
-      },
-    });
+    // Try both /p/ and /reel/ endpoints
+    const urls = [
+      `https://www.instagram.com/p/${reelId}/`,
+      `https://www.instagram.com/reel/${reelId}/`,
+    ];
+    
+    let html = '';
+    let lastError: Error | null = null;
+    
+    for (const fetchUrl of urls) {
+      try {
+        console.log(`Trying URL: ${fetchUrl}`);
+        const response = await fetch(fetchUrl, {
+          headers: {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+            'Accept-Language': 'en-US,en;q=0.9',
+            'Accept-Encoding': 'gzip, deflate, br',
+            'Referer': 'https://www.instagram.com/',
+            'Cache-Control': 'no-cache',
+            'Pragma': 'no-cache',
+            'Sec-Fetch-Dest': 'document',
+            'Sec-Fetch-Mode': 'navigate',
+            'Sec-Fetch-Site': 'none',
+            'Upgrade-Insecure-Requests': '1',
+          },
+        });
+        
+        if (response.ok) {
+          html = await response.text();
+          break;
+        } else {
+          lastError = new Error(`Failed with status ${response.status}`);
+        }
+      } catch (err: any) {
+        lastError = err;
+        continue;
+      }
+    }
+    
+    if (!html) {
+      throw lastError || new Error('Failed to fetch page from both URLs');
+    }
 
-    if (!response.ok) throw new Error('Page fetch failed');
-
-    const html = await response.text();
-
-    // Try to find video URL in page source
+    // Try to find video URL in page source with more patterns
     const patterns = [
       /"video_url":"([^"]+)"/,
+      /"videoUrl":"([^"]+)"/,
       /"src":"(https:\/\/[^"]+\.mp4[^"]*)"/,
       /og:video" content="([^"]+)"/,
+      /"playback_url":"([^"]+)"/,
+      /video_url\\":\\"([^"\\]+)\\"/,
+      /"video_versions":\[{"url":"([^"]+)"/,
+      /"url":"(https:\/\/[^"]*\.mp4[^"]*)"/,
     ];
 
     for (const pattern of patterns) {
@@ -256,9 +310,9 @@ export async function POST(request: NextRequest) {
       methods.push(() => downloadViaRapidAPI(url));
     }
     
-    // Always try fallback methods
-    methods.push(() => downloadViaOEmbed(reelId));
+    // Always try fallback methods - try direct scrape first as it's more reliable
     methods.push(() => downloadViaDirectScrape(reelId));
+    methods.push(() => downloadViaOEmbed(reelId));
 
     let lastError: any = null;
 
@@ -281,11 +335,21 @@ export async function POST(request: NextRequest) {
 
     // All methods failed
     console.log('\n❌ All methods failed\n');
+    console.log('Last error:', lastError?.message || 'Unknown error');
+    
+    // Return more detailed error in development
+    const errorMessage = process.env.NODE_ENV === 'development' 
+      ? `Could not fetch video. Last error: ${lastError?.message || 'Unknown error'}`
+      : 'Could not fetch video. Please try again or check if the post is public.';
     
     return NextResponse.json(
       { 
-        success: false, 
-        error: 'Could not fetch video. Please try again or check if the post is public.',
+        success: false,
+        error: errorMessage,
+        debug: process.env.NODE_ENV === 'development' ? {
+          methodsAttempted: methods.length,
+          lastError: lastError?.message,
+        } : undefined,
       },
       { status: 500 }
     );
