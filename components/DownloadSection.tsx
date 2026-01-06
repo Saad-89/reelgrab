@@ -295,7 +295,7 @@ export default function DownloadSection() {
                     <span className="text-sm font-semibold">Video ready! Preview or download now</span>
                   </div>
 
-                  <div className="aspect-video bg-gray-900 rounded-xl overflow-hidden" style={{ minHeight: '400px' }}>
+                  <div className="aspect-video bg-gray-900 rounded-xl overflow-hidden">
                     <video
                       src={videoData.url}
                       poster={videoData.thumbnail}
