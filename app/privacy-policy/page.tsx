@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   description: 'Learn how ReelGrab protects your privacy. We don\'t store videos or personal data. Read our comprehensive privacy policy.',
 };
 
+// privacy policy page
 export default function PrivacyPolicyPage() {
   const sections = [
     {
