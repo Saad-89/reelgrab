@@ -188,7 +188,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/guides//instagram-reels-guide-beginners`,
+      url: `${baseUrl}/guides/instagram-reels-guide-beginners`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.8,
@@ -219,6 +219,36 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/guides/brand-building-on-instagram`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/guides/instagram-stories-mastery-2025`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/guides/instagram-carousel-posts-guide-2025`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/guides/instagram-analytics-insights-guide-2025`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/guides/instagram-niche-selection-guide-2025`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/guides/instagram-hashtag-strategy-guide-2025`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.8,

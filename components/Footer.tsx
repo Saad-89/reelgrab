@@ -17,17 +17,17 @@ export default function Footer() {
               The fastest and most reliable Instagram Reels downloader. Save unlimited videos in HD quality, completely free forever.
             </p>
             <div className="flex gap-4">
-              <a href="https://x.com/saadkashmiri_" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-gray-200 transition-all">
+              <a href="https://x.com/saadkashmiri_" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Twitter" className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-gray-200 transition-all">
                 <Twitter className="w-5 h-5 text-gray-700" />
               </a>
-              <a href="https://www.instagram.com/khan_2o476/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-gray-200 transition-all">
+              <a href="https://www.instagram.com/khan_2o476/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-gray-200 transition-all">
                 <InstagramIcon className="w-5 h-5 text-gray-700" />
               </a>
             </div>
           </div>
 
           <div>
-            <h4 className="text-gray-900 font-bold mb-4">Content</h4>
+            <h3 className="text-gray-900 font-bold mb-4">Content</h3>
             <ul className="space-y-3">
               <li><Link href="/blog" className="text-gray-600 hover:text-blue-600 transition-colors">Blog</Link></li>
               <li><Link href="/guides" className="text-gray-600 hover:text-blue-600 transition-colors">Guides</Link></li>
@@ -37,7 +37,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-gray-900 font-bold mb-4">Legal</h4>
+            <h3 className="text-gray-900 font-bold mb-4">Legal</h3>
             <ul className="space-y-3">
               <li><Link href="/privacy-policy" className="text-gray-600 hover:text-blue-600 transition-colors">Privacy Policy</Link></li>
               <li><Link href="/terms" className="text-gray-600 hover:text-blue-600 transition-colors">Terms of Service</Link></li>

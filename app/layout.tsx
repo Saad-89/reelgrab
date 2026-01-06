@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
@@ -6,7 +6,17 @@ import "./globals.css";
 const inter = Inter({ 
   subsets: ["latin"],
   display: 'swap',
+  preload: true,
+  variable: '--font-inter',
 });
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: 'cover',
+  themeColor: '#3b82f6',
+};
 
 export const metadata: Metadata = {
   title: "ReelGrab - Download Instagram Reels in HD | Free Online Video Downloader",
@@ -106,8 +116,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Theme Color for Mobile Browsers */}
-        <meta name="theme-color" content="#3b82f6" />
+        {/* Preconnect to external domains for faster loading */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+        
+        {/* Theme Color is now handled by viewport export */}
         
         {/* Google AdSense */}
         <meta name="google-adsense-account" content="ca-pub-2561131168086064" />
@@ -118,17 +135,19 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
         
-        {/* Google Analytics */}
+        {/* Google Analytics - Load after page is interactive */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-1GWW9CCNPR"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-1GWW9CCNPR');
+            gtag('config', 'G-1GWW9CCNPR', {
+              page_path: window.location.pathname,
+            });
           `}
         </Script>
         

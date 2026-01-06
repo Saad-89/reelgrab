@@ -4,8 +4,35 @@ import { Metadata } from 'next';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'Instagram Guides & Tutorials | ReelGrab',
-  description: 'Comprehensive guides to help you master Instagram Reels, grow your following, and create viral content. Free tutorials and strategies.',
+  title: 'Instagram Guides & Tutorials 2025 | ReelGrab',
+  description: 'Comprehensive guides to help you master Instagram Reels, Stories, carousels, analytics, niche selection, and hashtags. Free tutorials and strategies for 2025.',
+  keywords: [
+    'instagram guides',
+    'instagram tutorials',
+    'instagram strategy',
+    'instagram marketing guide',
+    'instagram reels guide',
+    'instagram stories guide',
+    'instagram analytics guide',
+    'instagram hashtag strategy',
+    'instagram niche selection',
+    'instagram carousel posts'
+  ],
+  openGraph: {
+    title: 'Instagram Guides & Tutorials 2025 | ReelGrab',
+    description: 'Comprehensive guides to help you master Instagram Reels, grow your following, and create viral content. Free tutorials and strategies.',
+    url: 'https://reelgrab.site/guides',
+    siteName: 'ReelGrab',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Instagram Guides & Tutorials 2025',
+    description: 'Comprehensive guides to help you master Instagram Reels, grow your following, and create viral content.',
+  },
+  alternates: {
+    canonical: 'https://reelgrab.site/guides',
+  },
 };
 
 export default function GuidesPage() {
@@ -28,6 +55,41 @@ export default function GuidesPage() {
       title: "Video Content Creation Guide",
       slug: "video-content-creation-guide",
       description: "Master the art of video content creation. Learn filming techniques, editing tips, and storytelling strategies.",
+      readTime: "18 min read",
+      level: "All Levels"
+    },
+    {
+      title: "Instagram Stories Mastery 2025: From Basics to Advanced Techniques",
+      slug: "instagram-stories-mastery-2025",
+      description: "Master Instagram Stories with interactive stickers, polls, quizzes, Q&A sessions, and strategic Stories for business growth.",
+      readTime: "18 min read",
+      level: "All Levels"
+    },
+    {
+      title: "Instagram Carousel Posts Guide 2025: The Secret to Maximum Engagement",
+      slug: "instagram-carousel-posts-guide-2025",
+      description: "Deep dive into creating effective carousel posts (now up to 20 slides), storytelling through carousels, and why they outperform single-image posts.",
+      readTime: "16 min read",
+      level: "Intermediate"
+    },
+    {
+      title: "Instagram Analytics & Insights Guide 2025: Track What Matters",
+      slug: "instagram-analytics-insights-guide-2025",
+      description: "Learn how to read Instagram analytics, which metrics actually matter, using data to improve content strategy, and A/B testing content.",
+      readTime: "17 min read",
+      level: "Intermediate"
+    },
+    {
+      title: "Instagram Niche Selection Guide 2025: Finding Your Profitable Corner",
+      slug: "instagram-niche-selection-guide-2025",
+      description: "How to choose a profitable niche, research competition, validate your niche idea, and position yourself as an expert in your space.",
+      readTime: "19 min read",
+      level: "Beginner"
+    },
+    {
+      title: "Instagram Hashtag Strategy 2025: The Complete Guide to Discovery",
+      slug: "instagram-hashtag-strategy-guide-2025",
+      description: "Advanced hashtag research techniques, finding trending hashtags, creating branded hashtags, optimal hashtag combinations, and when hashtags matter.",
       readTime: "18 min read",
       level: "All Levels"
     },
