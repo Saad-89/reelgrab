@@ -297,7 +297,6 @@ export default function DownloadSection() {
 
                   <div className="aspect-video bg-gray-900 rounded-xl overflow-hidden" style={{ minHeight: '400px' }}>
                     <video
-                      loading="lazy"
                       src={videoData.url}
                       poster={videoData.thumbnail}
                       controls
