@@ -44,15 +44,20 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://reelgrab.site'),
   
   // ========================================
-  // FAVICON CONFIGURATION - ADDED
+  // FAVICON CONFIGURATION - OPTIMIZED FOR SEARCH ENGINES
   // ========================================
   icons: {
     icon: [
+      { url: '/favicon.ico', sizes: 'any' },
       { url: '/icon.png', sizes: '512x512', type: 'image/png' },
-      { url: '/favicon.ico', sizes: '32x32' }
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
     ],
     apple: [
       { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' }
+    ],
+    shortcut: [
+      { url: '/favicon.ico', sizes: 'any' }
     ],
     other: [
       {
@@ -116,6 +121,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Favicon links for maximum compatibility with search engines */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icon.png" type="image/png" sizes="512x512" />
+        <link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192" />
+        <link rel="apple-touch-icon" href="/apple-icon.png" sizes="180x180" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        
         {/* Preconnect to external domains for faster loading */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
