@@ -108,26 +108,22 @@ export default function RootLayout({
         {/* Minimal favicon for Google search results - Next.js auto-serves favicon.ico from app/ */}
         <link rel="icon" href="/favicon.ico" />
         
-        {/* Preconnect to external domains for faster loading */}
+        {/* Preconnect only to critical resources - reduce DNS lookups */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
-        <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
         
         {/* Theme Color is now handled by viewport export */}
         
-        {/* Google AdSense */}
+        {/* Google AdSense - Defer to reduce blocking */}
         <meta name="google-adsense-account" content="ca-pub-2561131168086064" />
         <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2561131168086064"
           crossOrigin="anonymous"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
         
-        {/* Google Analytics - Load after page is interactive */}
+        {/* Google Analytics - Load after page is fully loaded */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-1GWW9CCNPR"
           strategy="lazyOnload"
@@ -146,7 +142,7 @@ export default function RootLayout({
         {/* Canonical URL */}
         <link rel="canonical" href="https://reelgrab.site" />
         
-        {/* Structured Data (Schema.org) */}
+        {/* Structured Data (Schema.org) - Inline for SEO, non-blocking */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

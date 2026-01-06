@@ -17,6 +17,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #f8fafc;
+  text-rendering: optimizeLegibility;
 }
 
 @layer utilities {
@@ -60,8 +61,21 @@ input:focus-visible {
 
 .animate-scroll {
   animation: scroll 40s linear infinite;
+  will-change: transform;
 }
 
 .animate-scroll:hover {
   animation-play-state: paused;
+}
+
+/* Optimize rendering performance */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reduce layout shifts */
+img, video {
+  max-width: 100%;
+  height: auto;
 }
