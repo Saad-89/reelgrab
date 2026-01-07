@@ -21,7 +21,7 @@ export default function DownloadSection() {
   const [isDownloading, setIsDownloading] = useState(false);
   const [downloadProgress, setDownloadProgress] = useState(0);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent, retryCount = 0) => {
     e.preventDefault();
     setError('');
     setVideoData(null);
@@ -39,22 +39,52 @@ export default function DownloadSection() {
     setStep('loading');
 
     try {
+      // Add timeout to fetch request
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 35000); // 35 second timeout
+
       const response = await fetch('/api/download', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ url }),
+        signal: controller.signal,
       });
+
+      clearTimeout(timeoutId);
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || `Server error: ${response.status}`);
+      }
 
       const data = await response.json();
 
-      if (!response.ok || !data.success) {
+      if (!data.success) {
         throw new Error(data.error || 'Failed to fetch video');
+      }
+
+      // Validate video data
+      if (!data.data || !data.data.url) {
+        throw new Error('Invalid video data received');
       }
 
       setVideoData(data.data);
       setStep('preview');
     } catch (err: any) {
-      setError(err.message || 'Failed to fetch video. Please try again.');
+      console.error('Download error:', err);
+      
+      // Retry logic for network errors (max 2 retries)
+      if (retryCount < 2 && (err.name === 'AbortError' || err.message?.includes('timeout') || err.message?.includes('network'))) {
+        console.log(`Retrying... Attempt ${retryCount + 1}/2`);
+        await new Promise(resolve => setTimeout(resolve, 2000)); // Wait 2 seconds
+        return handleSubmit(e, retryCount + 1);
+      }
+
+      const errorMessage = err.name === 'AbortError' 
+        ? 'Request timed out. Please check your connection and try again.'
+        : err.message || 'Failed to fetch video. Please try again or check if the post is public.';
+      
+      setError(errorMessage);
       setStep('input');
     }
   };
@@ -73,19 +103,24 @@ export default function DownloadSection() {
       // Use server-side proxy to bypass CORS
       console.log('📥 Using proxy to download...');
       
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 120000); // 2 minute timeout for large videos
+      
       const response = await fetch('/api/proxy-download', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ url: videoData.url }),
+        signal: controller.signal,
       });
 
+      clearTimeout(timeoutId);
       console.log('✅ Proxy response status:', response.status);
 
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || 'Proxy download failed');
+        const errorData = await response.json().catch(() => ({ error: 'Download failed' }));
+        throw new Error(errorData.error || `Download failed: ${response.status}`);
       }
 
       // Read the response as a stream with progress
@@ -156,14 +191,27 @@ export default function DownloadSection() {
         name: err.name
       });
       
+      // Check if it's a timeout or network error
+      if (err.name === 'AbortError' || err.message?.includes('timeout')) {
+        setError('Download timeout. The video might be too large. Please try right-clicking the video and selecting "Save video as..."');
+        setIsDownloading(false);
+        return;
+      }
+      
       // Fallback: Try direct link method (last resort)
       console.log('🔄 Trying direct link as fallback...');
       
       try {
+        // Validate URL before attempting direct download
+        if (!videoData.url || !videoData.url.startsWith('http')) {
+          throw new Error('Invalid video URL');
+        }
+
         const a = document.createElement('a');
         a.href = videoData.url;
         a.download = `reelgrab_${Date.now()}.mp4`;
-        a.setAttribute('target', '_self');
+        a.setAttribute('target', '_blank');
+        a.setAttribute('rel', 'noopener noreferrer');
         a.style.display = 'none';
         document.body.appendChild(a);
         a.click();
@@ -180,7 +228,7 @@ export default function DownloadSection() {
           setStep('success');
         }, 1000);
 
-      } catch (linkError) {
+      } catch (linkError: any) {
         console.error('❌ Direct link failed:', linkError);
         setError('Unable to download automatically. Please right-click the video above and select "Save video as..."');
         setIsDownloading(false);

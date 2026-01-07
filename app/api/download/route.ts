@@ -1,6 +1,10 @@
 // app/api/download/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 
+// Route segment config for better timeout handling
+export const runtime = 'nodejs';
+export const maxDuration = 30; // 30 seconds for video fetching
+
 const rateLimitMap = new Map<string, number[]>();
 
 function rateLimit(ip: string): boolean {
@@ -44,6 +48,27 @@ function extractReelId(url: string): string | null {
   return null;
 }
 
+// Helper function to create fetch with timeout
+async function fetchWithTimeout(url: string, options: RequestInit = {}, timeout = 30000): Promise<Response> {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), timeout);
+
+  try {
+    const response = await fetch(url, {
+      ...options,
+      signal: controller.signal,
+    });
+    clearTimeout(timeoutId);
+    return response;
+  } catch (error: any) {
+    clearTimeout(timeoutId);
+    if (error.name === 'AbortError') {
+      throw new Error('Request timeout - Instagram took too long to respond');
+    }
+    throw error;
+  }
+}
+
 // PRIMARY: RapidAPI Instagram Reels Downloader
 async function downloadViaRapidAPI(url: string) {
   const apiKey = process.env.RAPIDAPI_KEY;
@@ -57,13 +82,13 @@ async function downloadViaRapidAPI(url: string) {
     
     const apiUrl = `https://instagram-reels-downloader-api.p.rapidapi.com/download?url=${encodeURIComponent(url)}`;
     
-    const response = await fetch(apiUrl, {
+    const response = await fetchWithTimeout(apiUrl, {
       method: 'GET',
       headers: {
         'x-rapidapi-key': apiKey,
         'x-rapidapi-host': 'instagram-reels-downloader-api.p.rapidapi.com',
       },
-    });
+    }, 25000);
 
     if (!response.ok) {
       throw new Error(`API status ${response.status}`);
@@ -117,15 +142,29 @@ async function downloadViaOEmbed(reelId: string) {
   try {
     console.log('🌐 Method 2: Instagram oEmbed API');
     
-    const oembed = await fetch(`https://www.instagram.com/p/${reelId}/embed/captioned/`, {
+    const userAgents = [
+      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+      'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    ];
+    
+    const randomUserAgent = userAgents[Math.floor(Math.random() * userAgents.length)];
+    
+    const oembed = await fetchWithTimeout(`https://www.instagram.com/p/${reelId}/embed/captioned/`, {
       headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'User-Agent': randomUserAgent,
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
         'Accept-Language': 'en-US,en;q=0.9',
         'Referer': 'https://www.instagram.com/',
         'Accept-Encoding': 'gzip, deflate, br',
+        'Cache-Control': 'no-cache',
+        'Pragma': 'no-cache',
+        'Sec-Fetch-Dest': 'document',
+        'Sec-Fetch-Mode': 'navigate',
+        'Sec-Fetch-Site': 'none',
+        'Upgrade-Insecure-Requests': '1',
       },
-    });
+    }, 25000);
     
     if (!oembed.ok) {
       console.error(`oEmbed status: ${oembed.status}`);
@@ -138,16 +177,25 @@ async function downloadViaOEmbed(reelId: string) {
       /"video_url":"([^"]+)"/,
       /"src":"([^"]+\.mp4[^"]*)"/,
       /video_url\\":\\"([^"\\]+)\\"/,
+      /"playback_url":"([^"]+)"/,
+      /"videoUrl":"([^"]+)"/,
     ];
 
     for (const pattern of patterns) {
       const match = html.match(pattern);
       if (match?.[1]) {
-        const videoUrl = match[1]
+        let videoUrl = match[1]
           .replace(/\\u0026/g, '&')
           .replace(/\\\//g, '/')
           .replace(/\\"/g, '"')
-          .replace(/&amp;/g, '&');
+          .replace(/&amp;/g, '&')
+          .replace(/\\u003C/g, '<')
+          .replace(/\\u003E/g, '>');
+
+        // Validate URL
+        if (!videoUrl.startsWith('http')) {
+          continue;
+        }
 
         const thumbMatch = html.match(/"display_url":"([^"]+)"/);
         const thumbnail = thumbMatch?.[1]
@@ -174,7 +222,13 @@ async function downloadViaOEmbed(reelId: string) {
 // FALLBACK 2: Direct Instagram page scraping
 async function downloadViaDirectScrape(reelId: string) {
   try {
-    console.log('🔍 Method 2: Direct Page Scraping');
+    console.log('🔍 Method 3: Direct Page Scraping');
+    
+    const userAgents = [
+      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+      'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    ];
     
     // Try both /p/ and /reel/ endpoints
     const urls = [
@@ -188,9 +242,11 @@ async function downloadViaDirectScrape(reelId: string) {
     for (const fetchUrl of urls) {
       try {
         console.log(`Trying URL: ${fetchUrl}`);
-        const response = await fetch(fetchUrl, {
+        const randomUserAgent = userAgents[Math.floor(Math.random() * userAgents.length)];
+        
+        const response = await fetchWithTimeout(fetchUrl, {
           headers: {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'User-Agent': randomUserAgent,
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
             'Accept-Language': 'en-US,en;q=0.9',
             'Accept-Encoding': 'gzip, deflate, br',
@@ -201,22 +257,26 @@ async function downloadViaDirectScrape(reelId: string) {
             'Sec-Fetch-Mode': 'navigate',
             'Sec-Fetch-Site': 'none',
             'Upgrade-Insecure-Requests': '1',
+            'DNT': '1',
           },
-        });
+        }, 30000);
         
         if (response.ok) {
           html = await response.text();
-          break;
+          if (html && html.length > 1000) { // Ensure we got actual content
+            break;
+          }
         } else {
           lastError = new Error(`Failed with status ${response.status}`);
         }
       } catch (err: any) {
         lastError = err;
+        console.error(`Error fetching ${fetchUrl}:`, err.message);
         continue;
       }
     }
     
-    if (!html) {
+    if (!html || html.length < 1000) {
       throw lastError || new Error('Failed to fetch page from both URLs');
     }
 
@@ -230,6 +290,8 @@ async function downloadViaDirectScrape(reelId: string) {
       /video_url\\":\\"([^"\\]+)\\"/,
       /"video_versions":\[{"url":"([^"]+)"/,
       /"url":"(https:\/\/[^"]*\.mp4[^"]*)"/,
+      /"video_url":"(https:\/\/[^"]+)"/,
+      /window\._sharedData\s*=\s*({.+?});/,
     ];
 
     for (const pattern of patterns) {
@@ -239,10 +301,34 @@ async function downloadViaDirectScrape(reelId: string) {
           .replace(/\\u0026/g, '&')
           .replace(/\\\//g, '/')
           .replace(/\\"/g, '"')
-          .replace(/&amp;/g, '&');
+          .replace(/&amp;/g, '&')
+          .replace(/\\u003C/g, '<')
+          .replace(/\\u003E/g, '>')
+          .trim();
 
-        const thumbMatch = html.match(/"og:image" content="([^"]+)"/);
-        const thumbnail = thumbMatch?.[1] || '';
+        // Validate URL
+        if (!videoUrl.startsWith('http')) {
+          continue;
+        }
+
+        // Try to extract from window._sharedData if we got JSON
+        if (pattern.toString().includes('_sharedData')) {
+          try {
+            const jsonData = JSON.parse(match[1]);
+            const entryData = jsonData?.entry_data?.PostPage?.[0]?.graphql?.shortcode_media;
+            if (entryData?.video_url) {
+              videoUrl = entryData.video_url;
+            } else if (entryData?.video_versions?.[0]?.url) {
+              videoUrl = entryData.video_versions[0].url;
+            }
+          } catch (e) {
+            // Not JSON, continue with extracted URL
+          }
+        }
+
+        const thumbMatch = html.match(/"og:image" content="([^"]+)"/) || 
+                          html.match(/"display_url":"([^"]+)"/);
+        const thumbnail = thumbMatch?.[1]?.replace(/\\u0026/g, '&').replace(/\\\//g, '/') || '';
 
         console.log('✅ Direct Scrape Success!');
 
@@ -307,49 +393,59 @@ export async function POST(request: NextRequest) {
     
     // Only add RapidAPI if key is configured
     if (process.env.RAPIDAPI_KEY) {
-      methods.push(() => downloadViaRapidAPI(url));
+      methods.push({ name: 'RapidAPI', fn: () => downloadViaRapidAPI(url) });
     }
     
     // Always try fallback methods - try direct scrape first as it's more reliable
-    methods.push(() => downloadViaDirectScrape(reelId));
-    methods.push(() => downloadViaOEmbed(reelId));
+    methods.push({ name: 'DirectScrape', fn: () => downloadViaDirectScrape(reelId) });
+    methods.push({ name: 'OEmbed', fn: () => downloadViaOEmbed(reelId) });
 
     let lastError: any = null;
+    const errors: string[] = [];
 
     for (const method of methods) {
       try {
-        const videoData = await method();
+        console.log(`\n🔄 Trying ${method.name}...`);
+        const videoData = await method.fn();
         
-        console.log('\n✅ SUCCESS!\n');
+        // Validate video URL before returning
+        if (!videoData.url || !videoData.url.startsWith('http')) {
+          throw new Error('Invalid video URL returned');
+        }
+        
+        console.log(`\n✅ SUCCESS with ${method.name}!\n`);
         
         return NextResponse.json({
           success: true,
           data: videoData,
         });
       } catch (error: any) {
+        const errorMsg = error.message || 'Unknown error';
         lastError = error;
-        console.log('⚠️  Method failed, trying next...\n');
+        errors.push(`${method.name}: ${errorMsg}`);
+        console.log(`⚠️  ${method.name} failed: ${errorMsg}\n`);
         continue;
       }
     }
 
     // All methods failed
     console.log('\n❌ All methods failed\n');
-    console.log('Last error:', lastError?.message || 'Unknown error');
+    console.log('Errors:', errors.join(' | '));
     
-    // Return more detailed error in development
-    const errorMessage = process.env.NODE_ENV === 'development' 
-      ? `Could not fetch video. Last error: ${lastError?.message || 'Unknown error'}`
-      : 'Could not fetch video. Please try again or check if the post is public.';
+    // Return user-friendly error
+    const errorMessage = 'Could not fetch video. Please try again or check if the post is public.';
     
     return NextResponse.json(
       { 
         success: false,
         error: errorMessage,
-        debug: process.env.NODE_ENV === 'development' ? {
-          methodsAttempted: methods.length,
-          lastError: lastError?.message,
-        } : undefined,
+        ...(process.env.NODE_ENV === 'development' && {
+          debug: {
+            methodsAttempted: methods.length,
+            errors: errors,
+            reelId: reelId,
+          }
+        }),
       },
       { status: 500 }
     );
