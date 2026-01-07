@@ -71,12 +71,8 @@ async function fetchWithTimeout(url: string, options: RequestInit = {}, timeout 
 
 // PRIMARY: RapidAPI Instagram Reels Downloader
 async function downloadViaRapidAPI(url: string) {
-  // Use environment variable or fallback to provided key
-  const apiKey = process.env.RAPIDAPI_KEY || '45be548deamshed22ae0026dd16fp1a5ac6jsn060fcbe67470';
-  
-  if (!apiKey) {
-    throw new Error('RAPIDAPI_KEY not configured');
-  }
+  // RapidAPI key
+  const apiKey = '45be548deamshed22ae0026dd16fp1a5ac6jsn060fcbe67470';
 
   try {
     console.log('🔑 Method 1: RapidAPI Instagram Reels Downloader');
@@ -446,7 +442,9 @@ async function downloadViaDirectScrape(reelId: string) {
 // MAIN HANDLER
 export async function POST(request: NextRequest) {
   try {
-    const ip = request.headers.get('x-forwarded-for')?.split(',')[0] || 'unknown';
+    const ip = request.headers.get('x-forwarded-for')?.split(',')[0] || 
+               request.headers.get('x-real-ip') || 
+               'unknown';
 
     if (!rateLimit(ip)) {
       return NextResponse.json(
@@ -455,7 +453,19 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { url } = await request.json();
+    // Parse request body with error handling
+    let body;
+    try {
+      body = await request.json();
+    } catch (jsonError: any) {
+      console.error('Failed to parse request JSON:', jsonError);
+      return NextResponse.json(
+        { success: false, error: 'Invalid request format' },
+        { status: 400 }
+      );
+    }
+
+    const { url } = body;
 
     if (!url) {
       return NextResponse.json(
@@ -487,13 +497,11 @@ export async function POST(request: NextRequest) {
     console.log('🔧 Environment:', process.env.NODE_ENV);
     console.log('========================================\n');
 
-    // Try all methods in sequence (skip RapidAPI if key not configured)
+    // Try all methods in sequence - RapidAPI has fallback key so always try it
     const methods = [];
     
-    // Only add RapidAPI if key is configured
-    if (process.env.RAPIDAPI_KEY) {
-      methods.push({ name: 'RapidAPI', fn: () => downloadViaRapidAPI(url) });
-    }
+    // Always add RapidAPI (has fallback key in function)
+    methods.push({ name: 'RapidAPI', fn: () => downloadViaRapidAPI(url) });
     
     // Always try fallback methods - try multiple approaches
     methods.push({ name: 'DirectScrape', fn: () => downloadViaDirectScrape(reelId) });
@@ -522,7 +530,7 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({
           success: true,
           data: videoData,
-        });
+        }, { status: 200 });
       } catch (error: any) {
         const errorMsg = error?.message || 'Unknown error';
         lastError = error;
@@ -532,6 +540,7 @@ export async function POST(request: NextRequest) {
           console.log(`Stack trace: ${error.stack.substring(0, 300)}`);
         }
         console.log('');
+        // Continue to next method
         continue;
       }
     }
@@ -539,8 +548,10 @@ export async function POST(request: NextRequest) {
     // All methods failed - return with reelId for client-side fallback
     console.log('\n❌ All server-side methods failed\n');
     console.log('Errors:', errors.join(' | '));
+    console.log('Methods attempted:', methods.length);
     
     // Return error with reelId so client can try client-side extraction
+    // Use 200 status with success:false instead of 500 to allow client-side fallback
     const errorMessage = 'Could not fetch video. Please try again or check if the post is public.';
     
     return NextResponse.json(
@@ -557,23 +568,29 @@ export async function POST(request: NextRequest) {
           }
         }),
       },
-      { status: 500 }
+      { status: 200 } // Return 200 so client can handle the fallback
     );
 
   } catch (error: any) {
-    console.error('\n💥 CRITICAL ERROR:', error);
-    console.error('Error stack:', error.stack);
-    console.error('Error name:', error.name);
-    console.error('Error message:', error.message);
+    console.error('\n💥 CRITICAL ERROR in POST handler:');
+    console.error('Error type:', typeof error);
+    console.error('Error name:', error?.name || 'Unknown');
+    console.error('Error message:', error?.message || 'Unknown error');
+    if (error?.stack) {
+      console.error('Error stack:', error.stack.substring(0, 500));
+    }
     
+    // Don't try to read request body again - it can only be read once
+    // Just return a generic error
     return NextResponse.json(
       { 
         success: false, 
         error: 'An error occurred. Please try again.',
         ...(process.env.NODE_ENV === 'development' && {
           debug: {
-            error: error.message,
-            name: error.name,
+            error: error?.message || 'Unknown error',
+            name: error?.name || 'Unknown',
+            type: typeof error,
           }
         }),
       },
