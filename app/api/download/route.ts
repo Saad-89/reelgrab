@@ -71,10 +71,11 @@ async function fetchWithTimeout(url: string, options: RequestInit = {}, timeout 
 
 // PRIMARY: RapidAPI Instagram Reels Downloader
 async function downloadViaRapidAPI(url: string) {
-  const apiKey = process.env.RAPIDAPI_KEY;
+  // Use environment variable or fallback to provided key
+  const apiKey = process.env.RAPIDAPI_KEY || '45be548deamshed22ae0026dd16fp1a5ac6jsn060fcbe67470';
   
   if (!apiKey) {
-    throw new Error('API key not configured');
+    throw new Error('RAPIDAPI_KEY not configured');
   }
 
   try {
@@ -91,13 +92,21 @@ async function downloadViaRapidAPI(url: string) {
     }, 25000);
 
     if (!response.ok) {
-      throw new Error(`API status ${response.status}`);
+      const errorText = await response.text().catch(() => 'Unknown error');
+      console.error('RapidAPI error response:', errorText);
+      throw new Error(`API status ${response.status}: ${errorText.substring(0, 100)}`);
     }
 
-    const result = await response.json();
+    let result;
+    try {
+      result = await response.json();
+    } catch (jsonError: any) {
+      console.error('Failed to parse RapidAPI JSON:', jsonError);
+      throw new Error('Invalid JSON response from RapidAPI');
+    }
 
-    if (!result.success) {
-      throw new Error(result.message || 'API unsuccessful');
+    if (!result || !result.success) {
+      throw new Error(result?.message || 'API unsuccessful');
     }
 
     // Extract video URL
@@ -167,11 +176,18 @@ async function downloadViaOEmbed(reelId: string) {
     }, 25000);
     
     if (!oembed.ok) {
-      console.error(`oEmbed status: ${oembed.status}`);
+      const errorText = await oembed.text().catch(() => '');
+      console.error(`oEmbed status: ${oembed.status}`, errorText.substring(0, 200));
       throw new Error(`oEmbed failed: ${oembed.status}`);
     }
 
-    const html = await oembed.text();
+    let html: string;
+    try {
+      html = await oembed.text();
+    } catch (textError: any) {
+      console.error('Failed to read oEmbed response:', textError.message);
+      throw new Error('Failed to read oEmbed response');
+    }
 
     const patterns = [
       /"video_url":"([^"]+)"/,
@@ -247,7 +263,12 @@ async function downloadViaJSONAPI(reelId: string) {
     
     if (response.ok) {
       try {
-        const data = await response.json();
+        const text = await response.text();
+        if (!text || text.trim().length === 0) {
+          throw new Error('Empty response from JSON API');
+        }
+        
+        const data = JSON.parse(text);
         const videoUrl = data?.items?.[0]?.video_versions?.[0]?.url ||
                         data?.graphql?.shortcode_media?.video_url ||
                         data?.shortcode_media?.video_url;
@@ -264,8 +285,9 @@ async function downloadViaJSONAPI(reelId: string) {
             title: '',
           };
         }
-      } catch (e) {
-        // Not JSON, continue
+      } catch (e: any) {
+        console.error('JSON API parse error:', e.message);
+        // Not JSON or invalid JSON, continue
       }
     }
     
@@ -319,22 +341,28 @@ async function downloadViaDirectScrape(reelId: string) {
         }, 30000);
         
         if (response.ok) {
-          html = await response.text();
-          if (html && html.length > 1000) { // Ensure we got actual content
-            console.log(`✅ Successfully fetched ${fetchUrl}, HTML length: ${html.length}`);
-            break;
-          } else {
-            console.warn(`⚠️  Got response but HTML too short: ${html?.length || 0} chars`);
-            lastError = new Error(`Response too short: ${html?.length || 0} chars`);
+          try {
+            html = await response.text();
+            if (html && html.length > 1000) { // Ensure we got actual content
+              console.log(`✅ Successfully fetched ${fetchUrl}, HTML length: ${html.length}`);
+              break;
+            } else {
+              console.warn(`⚠️  Got response but HTML too short: ${html?.length || 0} chars`);
+              lastError = new Error(`Response too short: ${html?.length || 0} chars`);
+            }
+          } catch (textError: any) {
+            console.error(`Failed to read response from ${fetchUrl}:`, textError.message);
+            lastError = new Error(`Failed to read response: ${textError.message}`);
           }
         } else {
           const statusText = response.statusText || 'Unknown';
-          console.error(`❌ Failed to fetch ${fetchUrl}: ${response.status} ${statusText}`);
+          const errorBody = await response.text().catch(() => '').then(t => t.substring(0, 200));
+          console.error(`❌ Failed to fetch ${fetchUrl}: ${response.status} ${statusText}`, errorBody);
           lastError = new Error(`Failed with status ${response.status}: ${statusText}`);
         }
       } catch (err: any) {
         lastError = err;
-        console.error(`Error fetching ${fetchUrl}:`, err.message);
+        console.error(`Error fetching ${fetchUrl}:`, err.message, err.stack?.substring(0, 200));
         continue;
       }
     }
@@ -388,7 +416,8 @@ async function downloadViaDirectScrape(reelId: string) {
             } else if (entryData?.video_versions?.[0]?.url) {
               videoUrl = entryData.video_versions[0].url;
             }
-          } catch (e) {
+          } catch (e: any) {
+            console.warn('Failed to parse _sharedData JSON:', e.message);
             // Not JSON, continue with extracted URL
           }
         }
@@ -480,7 +509,11 @@ export async function POST(request: NextRequest) {
         const videoData = await method.fn();
         
         // Validate video URL before returning
-        if (!videoData.url || !videoData.url.startsWith('http')) {
+        if (!videoData || typeof videoData !== 'object') {
+          throw new Error('Invalid response format');
+        }
+        
+        if (!videoData.url || typeof videoData.url !== 'string' || !videoData.url.startsWith('http')) {
           throw new Error('Invalid video URL returned');
         }
         
@@ -491,10 +524,14 @@ export async function POST(request: NextRequest) {
           data: videoData,
         });
       } catch (error: any) {
-        const errorMsg = error.message || 'Unknown error';
+        const errorMsg = error?.message || 'Unknown error';
         lastError = error;
         errors.push(`${method.name}: ${errorMsg}`);
-        console.log(`⚠️  ${method.name} failed: ${errorMsg}\n`);
+        console.log(`⚠️  ${method.name} failed: ${errorMsg}`);
+        if (error?.stack) {
+          console.log(`Stack trace: ${error.stack.substring(0, 300)}`);
+        }
+        console.log('');
         continue;
       }
     }
@@ -525,11 +562,20 @@ export async function POST(request: NextRequest) {
 
   } catch (error: any) {
     console.error('\n💥 CRITICAL ERROR:', error);
+    console.error('Error stack:', error.stack);
+    console.error('Error name:', error.name);
+    console.error('Error message:', error.message);
     
     return NextResponse.json(
       { 
         success: false, 
         error: 'An error occurred. Please try again.',
+        ...(process.env.NODE_ENV === 'development' && {
+          debug: {
+            error: error.message,
+            name: error.name,
+          }
+        }),
       },
       { status: 500 }
     );
