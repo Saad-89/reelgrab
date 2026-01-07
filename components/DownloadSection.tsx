@@ -21,6 +21,108 @@ export default function DownloadSection() {
   const [isDownloading, setIsDownloading] = useState(false);
   const [downloadProgress, setDownloadProgress] = useState(0);
 
+  // Extract reel ID from URL
+  const extractReelId = (url: string): string | null => {
+    const cleanUrl = url.split('?')[0].split('#')[0];
+    const patterns = [
+      /instagram\.com\/reel\/([A-Za-z0-9_-]+)/,
+      /instagram\.com\/p\/([A-Za-z0-9_-]+)/,
+      /instagram\.com\/tv\/([A-Za-z0-9_-]+)/,
+      /instagram\.com\/reels\/([A-Za-z0-9_-]+)/,
+    ];
+
+    for (const pattern of patterns) {
+      const match = cleanUrl.match(pattern);
+      if (match && match[1]) {
+        return match[1];
+      }
+    }
+    return null;
+  };
+
+  // Client-side extraction as fallback
+  const extractVideoClientSide = async (reelId: string): Promise<VideoData | null> => {
+    try {
+      console.log('🌐 Attempting client-side extraction for:', reelId);
+      
+      // Try multiple endpoints
+      const endpoints = [
+        `https://www.instagram.com/p/${reelId}/embed/captioned/`,
+        `https://www.instagram.com/reel/${reelId}/embed/`,
+        `https://www.instagram.com/p/${reelId}/`,
+      ];
+
+      for (const embedUrl of endpoints) {
+        try {
+          console.log(`Trying endpoint: ${embedUrl}`);
+          const response = await fetch(embedUrl, {
+            mode: 'cors',
+            credentials: 'omit',
+            headers: {
+              'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+            },
+          });
+
+          if (!response.ok) {
+            console.warn(`Endpoint ${embedUrl} returned ${response.status}`);
+            continue;
+          }
+
+          const html = await response.text();
+          
+          if (!html || html.length < 100) {
+            console.warn(`Endpoint ${embedUrl} returned empty/short content`);
+            continue;
+          }
+          
+          // Try multiple patterns
+          const patterns = [
+            /"video_url":"([^"]+)"/,
+            /"src":"([^"]+\.mp4[^"]*)"/,
+            /video_url\\":\\"([^"\\]+)\\"/,
+            /"playback_url":"([^"]+)"/,
+            /"videoUrl":"([^"]+)"/,
+            /"video_versions":\[{"url":"([^"]+)"/,
+            /"url":"(https:\/\/[^"]*\.mp4[^"]*)"/,
+          ];
+
+          for (const pattern of patterns) {
+            const match = html.match(pattern);
+            if (match?.[1]) {
+              let videoUrl = match[1]
+                .replace(/\\u0026/g, '&')
+                .replace(/\\\//g, '/')
+                .replace(/\\"/g, '"')
+                .replace(/&amp;/g, '&')
+                .trim();
+
+              if (videoUrl.startsWith('http')) {
+                const thumbMatch = html.match(/"display_url":"([^"]+)"/) || 
+                                  html.match(/"og:image" content="([^"]+)"/);
+                const thumbnail = thumbMatch?.[1]?.replace(/\\u0026/g, '&').replace(/\\\//g, '/') || '';
+
+                console.log('✅ Client-side extraction successful!');
+                return {
+                  url: videoUrl,
+                  thumbnail,
+                  title: '',
+                };
+              }
+            }
+          }
+        } catch (endpointError: any) {
+          console.warn(`Error with endpoint ${embedUrl}:`, endpointError.message);
+          continue;
+        }
+      }
+
+      return null;
+    } catch (error: any) {
+      console.error('❌ Client-side extraction failed:', error);
+      return null;
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent, retryCount = 0) => {
     e.preventDefault();
     setError('');
@@ -60,7 +162,31 @@ export default function DownloadSection() {
       const data = await response.json();
 
       if (!data.success) {
-        throw new Error(data.error || 'Failed to fetch video');
+        // If server failed, try client-side extraction as fallback
+        const reelId = data.reelId || extractReelId(url);
+        
+        if (reelId) {
+          console.log('🔄 Server-side failed, trying client-side extraction...');
+          // Don't set error here, just try silently
+          
+          try {
+            const clientData = await extractVideoClientSide(reelId);
+            
+            if (clientData) {
+              setError(''); // Clear any previous errors
+              setVideoData(clientData);
+              setStep('preview');
+              return;
+            }
+          } catch (clientError: any) {
+            console.error('Client-side extraction error:', clientError);
+            // Continue to throw original error
+          }
+        }
+        
+        // Provide helpful error message
+        const errorMsg = data.error || 'Failed to fetch video. Please ensure the post is public and try again.';
+        throw new Error(errorMsg);
       }
 
       // Validate video data

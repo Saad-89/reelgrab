@@ -219,7 +219,64 @@ async function downloadViaOEmbed(reelId: string) {
   }
 }
 
-// FALLBACK 2: Direct Instagram page scraping
+// FALLBACK 2: Instagram JSON API endpoint
+async function downloadViaJSONAPI(reelId: string) {
+  try {
+    console.log('📡 Method 3: Instagram JSON API');
+    
+    const userAgents = [
+      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    ];
+    
+    const randomUserAgent = userAgents[Math.floor(Math.random() * userAgents.length)];
+    
+    // Try Instagram's public JSON endpoint
+    const jsonUrl = `https://www.instagram.com/p/${reelId}/?__a=1&__d=dis`;
+    
+    const response = await fetchWithTimeout(jsonUrl, {
+      headers: {
+        'User-Agent': randomUserAgent,
+        'Accept': 'application/json, text/plain, */*',
+        'Accept-Language': 'en-US,en;q=0.9',
+        'Referer': 'https://www.instagram.com/',
+        'X-Requested-With': 'XMLHttpRequest',
+        'X-IG-App-ID': '936619743392459',
+      },
+    }, 20000);
+    
+    if (response.ok) {
+      try {
+        const data = await response.json();
+        const videoUrl = data?.items?.[0]?.video_versions?.[0]?.url ||
+                        data?.graphql?.shortcode_media?.video_url ||
+                        data?.shortcode_media?.video_url;
+        
+        if (videoUrl) {
+          const thumbnail = data?.items?.[0]?.image_versions2?.candidates?.[0]?.url ||
+                           data?.graphql?.shortcode_media?.display_url ||
+                           '';
+          
+          console.log('✅ JSON API Success!');
+          return {
+            url: videoUrl,
+            thumbnail,
+            title: '',
+          };
+        }
+      } catch (e) {
+        // Not JSON, continue
+      }
+    }
+    
+    throw new Error('JSON API failed');
+  } catch (error: any) {
+    console.error('❌ JSON API failed:', error.message);
+    throw error;
+  }
+}
+
+// FALLBACK 3: Direct Instagram page scraping
 async function downloadViaDirectScrape(reelId: string) {
   try {
     console.log('🔍 Method 3: Direct Page Scraping');
@@ -264,10 +321,16 @@ async function downloadViaDirectScrape(reelId: string) {
         if (response.ok) {
           html = await response.text();
           if (html && html.length > 1000) { // Ensure we got actual content
+            console.log(`✅ Successfully fetched ${fetchUrl}, HTML length: ${html.length}`);
             break;
+          } else {
+            console.warn(`⚠️  Got response but HTML too short: ${html?.length || 0} chars`);
+            lastError = new Error(`Response too short: ${html?.length || 0} chars`);
           }
         } else {
-          lastError = new Error(`Failed with status ${response.status}`);
+          const statusText = response.statusText || 'Unknown';
+          console.error(`❌ Failed to fetch ${fetchUrl}: ${response.status} ${statusText}`);
+          lastError = new Error(`Failed with status ${response.status}: ${statusText}`);
         }
       } catch (err: any) {
         lastError = err;
@@ -277,8 +340,12 @@ async function downloadViaDirectScrape(reelId: string) {
     }
     
     if (!html || html.length < 1000) {
+      const errorMsg = lastError?.message || 'Failed to fetch page from both URLs';
+      console.error(`❌ No valid HTML content. Error: ${errorMsg}, HTML length: ${html?.length || 0}`);
       throw lastError || new Error('Failed to fetch page from both URLs');
     }
+
+    console.log(`📄 HTML content received: ${html.length} characters`);
 
     // Try to find video URL in page source with more patterns
     const patterns = [
@@ -386,6 +453,9 @@ export async function POST(request: NextRequest) {
     console.log('\n========================================');
     console.log('🎬 NEW REQUEST');
     console.log('🆔 Reel ID:', reelId);
+    console.log('🌐 URL:', url);
+    console.log('📍 IP:', ip);
+    console.log('🔧 Environment:', process.env.NODE_ENV);
     console.log('========================================\n');
 
     // Try all methods in sequence (skip RapidAPI if key not configured)
@@ -396,8 +466,9 @@ export async function POST(request: NextRequest) {
       methods.push({ name: 'RapidAPI', fn: () => downloadViaRapidAPI(url) });
     }
     
-    // Always try fallback methods - try direct scrape first as it's more reliable
+    // Always try fallback methods - try multiple approaches
     methods.push({ name: 'DirectScrape', fn: () => downloadViaDirectScrape(reelId) });
+    methods.push({ name: 'JSONAPI', fn: () => downloadViaJSONAPI(reelId) });
     methods.push({ name: 'OEmbed', fn: () => downloadViaOEmbed(reelId) });
 
     let lastError: any = null;
@@ -428,17 +499,19 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // All methods failed
-    console.log('\n❌ All methods failed\n');
+    // All methods failed - return with reelId for client-side fallback
+    console.log('\n❌ All server-side methods failed\n');
     console.log('Errors:', errors.join(' | '));
     
-    // Return user-friendly error
+    // Return error with reelId so client can try client-side extraction
     const errorMessage = 'Could not fetch video. Please try again or check if the post is public.';
     
     return NextResponse.json(
       { 
         success: false,
         error: errorMessage,
+        reelId: reelId, // Provide reelId for client-side fallback
+        clientSideFallback: true, // Signal to use client-side extraction
         ...(process.env.NODE_ENV === 'development' && {
           debug: {
             methodsAttempted: methods.length,
