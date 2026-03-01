@@ -42,8 +42,8 @@ export default function InstagramHashtagStrategyGuide2025() {
             </p>
           </div>
 
-          <div className="h-96 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center mb-12">
-            <span className="text-9xl">#️⃣</span>
+          <div className="mb-12 rounded-2xl overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=900&auto=format&fit=crop&q=80" alt="Hashtag strategy board for social media growth" className="w-full h-80 object-cover" />
           </div>
 
           <div className="prose prose-lg max-w-none">
@@ -61,7 +61,7 @@ export default function InstagramHashtagStrategyGuide2025() {
             </div>
 
             <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Chapter 1: Understanding Hashtags in 2025</h2>
-            
+
             <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">How Hashtags Work</h3>
             <p className="text-gray-700 leading-relaxed mb-6">
               Hashtags on Instagram are clickable keywords or phrases (preceded by #) that categorize content. When users click or search a hashtag, they see all public posts using that hashtag. Hashtags help Instagram's algorithm understand your content and show it to relevant audiences.
@@ -110,7 +110,7 @@ export default function InstagramHashtagStrategyGuide2025() {
             </p>
 
             <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Research Methods</h3>
-            
+
             <h4 className="text-xl font-bold text-gray-900 mt-6 mb-3">1. Instagram's Search Function</h4>
             <p className="text-gray-700 leading-relaxed mb-6">
               Use Instagram's search to find hashtags:
@@ -174,7 +174,7 @@ export default function InstagramHashtagStrategyGuide2025() {
             </p>
 
             <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">How to Find Trending Hashtags</h3>
-            
+
             <h4 className="text-xl font-bold text-gray-900 mt-6 mb-3">1. Instagram's Trending Indicators</h4>
             <p className="text-gray-700 leading-relaxed mb-6">
               Look for these signs:
@@ -362,7 +362,7 @@ export default function InstagramHashtagStrategyGuide2025() {
             <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Chapter 7: Common Hashtag Mistakes</h2>
 
             <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Mistakes to Avoid</h3>
-            
+
             <h4 className="text-xl font-bold text-gray-900 mt-6 mb-3">1. Using Banned Hashtags</h4>
             <p className="text-gray-700 leading-relaxed mb-6">
               Banned hashtags won't help your content. Common banned hashtags include overly generic ones like #photography, #beautyblogger, and some that have been spammed. Always check if a hashtag is banned before using it.
@@ -445,14 +445,14 @@ export default function InstagramHashtagStrategyGuide2025() {
                 Hashtags remain a valuable tool for Instagram growth in 2025, but they're most effective when used strategically. Focus on relevant, well-researched hashtags that help Instagram understand your content and connect you with the right audience. Remember, hashtags are just one part of a successful Instagram strategy—great content and engagement matter more.
               </p>
               <div className="flex gap-4">
-                <Link 
-                  href="/" 
+                <Link
+                  href="/"
                   className="inline-block bg-cyan-600 text-white font-semibold px-8 py-3 rounded-xl hover:bg-cyan-700 transition-all"
                 >
                   Download Reels for Study
                 </Link>
-                <Link 
-                  href="/guides" 
+                <Link
+                  href="/guides"
                   className="inline-block bg-white border-2 border-cyan-600 text-cyan-600 font-semibold px-8 py-3 rounded-xl hover:bg-cyan-50 transition-all"
                 >
                   More Guides

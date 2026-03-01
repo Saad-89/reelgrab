@@ -42,8 +42,8 @@ export default function InstagramMarketingStrategy2025() {
             </p>
           </div>
 
-          <div className="h-96 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mb-12">
-            <span className="text-9xl">📊</span>
+          <div className="mb-12 rounded-2xl overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=900&auto=format&fit=crop&q=80" alt="Instagram marketing strategy planning session" className="w-full h-80 object-cover" />
           </div>
 
           <div className="prose prose-lg max-w-none">
@@ -167,7 +167,7 @@ export default function InstagramMarketingStrategy2025() {
             <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Part 4: Growth Strategies for 2025</h2>
 
             <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Organic Growth Tactics</h3>
-            
+
             <h4 className="text-xl font-bold text-gray-900 mt-6 mb-3">1. Optimize Your Profile</h4>
             <p className="text-gray-700 leading-relaxed mb-6">
               Your profile is your storefront. Include:
@@ -344,14 +344,14 @@ export default function InstagramMarketingStrategy2025() {
                 Instagram marketing success doesn't happen overnight, but with a clear strategy and consistent execution, you'll see results. Start with the fundamentals, measure everything, and optimize continuously.
               </p>
               <div className="flex gap-4">
-                <Link 
-                  href="/" 
+                <Link
+                  href="/"
                   className="inline-block bg-purple-600 text-white font-semibold px-8 py-3 rounded-xl hover:bg-purple-700 transition-all"
                 >
                   Download Competitor Reels
                 </Link>
-                <Link 
-                  href="/guides" 
+                <Link
+                  href="/guides"
                   className="inline-block bg-white border-2 border-purple-600 text-purple-600 font-semibold px-8 py-3 rounded-xl hover:bg-purple-50 transition-all"
                 >
                   More Guides

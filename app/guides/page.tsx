@@ -42,56 +42,64 @@ export default function GuidesPage() {
       slug: "instagram-reels-guide-beginners",
       description: "Everything you need to know to start creating, editing, and posting Instagram Reels. Perfect for complete beginners.",
       readTime: "15 min read",
-      level: "Beginner"
+      level: "Beginner",
+      image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600&auto=format&fit=crop&q=80"
     },
     {
       title: "Instagram Marketing Strategy Guide 2025",
       slug: "instagram-marketing-strategy-2025",
       description: "Build a comprehensive Instagram marketing strategy that drives real results. From content planning to analytics.",
       readTime: "20 min read",
-      level: "Intermediate"
+      level: "Intermediate",
+      image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=600&auto=format&fit=crop&q=80"
     },
     {
       title: "Video Content Creation Guide",
       slug: "video-content-creation-guide",
       description: "Master the art of video content creation. Learn filming techniques, editing tips, and storytelling strategies.",
       readTime: "18 min read",
-      level: "All Levels"
+      level: "All Levels",
+      image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&auto=format&fit=crop&q=80"
     },
     {
       title: "Instagram Stories Mastery 2025: From Basics to Advanced Techniques",
       slug: "instagram-stories-mastery-2025",
       description: "Master Instagram Stories with interactive stickers, polls, quizzes, Q&A sessions, and strategic Stories for business growth.",
       readTime: "18 min read",
-      level: "All Levels"
+      level: "All Levels",
+      image: "https://images.unsplash.com/photo-1596638787647-904d822d751e?w=600&auto=format&fit=crop&q=80"
     },
     {
       title: "Instagram Carousel Posts Guide 2025: The Secret to Maximum Engagement",
       slug: "instagram-carousel-posts-guide-2025",
       description: "Deep dive into creating effective carousel posts (now up to 20 slides), storytelling through carousels, and why they outperform single-image posts.",
       readTime: "16 min read",
-      level: "Intermediate"
+      level: "Intermediate",
+      image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&auto=format&fit=crop&q=80"
     },
     {
       title: "Instagram Analytics & Insights Guide 2025: Track What Matters",
       slug: "instagram-analytics-insights-guide-2025",
       description: "Learn how to read Instagram analytics, which metrics actually matter, using data to improve content strategy, and A/B testing content.",
       readTime: "17 min read",
-      level: "Intermediate"
+      level: "Intermediate",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format&fit=crop&q=80"
     },
     {
       title: "Instagram Niche Selection Guide 2025: Finding Your Profitable Corner",
       slug: "instagram-niche-selection-guide-2025",
       description: "How to choose a profitable niche, research competition, validate your niche idea, and position yourself as an expert in your space.",
       readTime: "19 min read",
-      level: "Beginner"
+      level: "Beginner",
+      image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&auto=format&fit=crop&q=80"
     },
     {
       title: "Instagram Hashtag Strategy 2025: The Complete Guide to Discovery",
       slug: "instagram-hashtag-strategy-guide-2025",
       description: "Advanced hashtag research techniques, finding trending hashtags, creating branded hashtags, optimal hashtag combinations, and when hashtags matter.",
       readTime: "18 min read",
-      level: "All Levels"
+      level: "All Levels",
+      image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&auto=format&fit=crop&q=80"
     },
   ];
 
@@ -135,8 +143,18 @@ export default function GuidesPage() {
                 href={`/guides/${guide.slug}`}
                 className="group bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-all"
               >
-                <div className="h-48 bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
-                  <span className="text-6xl">📚</span>
+                <div className="h-48 overflow-hidden">
+                  {guide.image ? (
+                    <img
+                      src={guide.image}
+                      alt={guide.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
+                      <span className="text-6xl">📚</span>
+                    </div>
+                  )}
                 </div>
                 <div className="p-6">
                   <div className="flex items-center gap-2 text-xs font-semibold mb-3">

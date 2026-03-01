@@ -12,13 +12,14 @@ export const metadata: Metadata = {
 
 export default function BestEditingAppsPost() {
   const articles = [
-    // EXISTING WRITTEN POSTS - Match your folder structure
     {
       title: "Copyright Law 101: What Every Instagram Creator Should Know",
       slug: "copyright-law-instagram-creators",
       excerpt: "Essential copyright guide for Instagram creators. Learn fair use, DMCA, content protection, and how to stay legally compliant in 2025.",
       date: "January 3, 2025",
       category: "Legal Guide",
+      readTime: "9 min read",
+      image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&auto=format&fit=crop&q=80",
       featured: true,
       written: true
     },
@@ -28,6 +29,30 @@ export default function BestEditingAppsPost() {
       excerpt: "Navigate Instagram's terms of service and copyright rules. Learn what you can and cannot do with Reels content legally.",
       date: "January 3, 2025",
       category: "Legal Guide",
+      readTime: "8 min read",
+      image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&auto=format&fit=crop&q=80",
+      featured: true,
+      written: true
+    },
+    {
+      title: "How to Build a Personal Brand on Instagram from Scratch",
+      slug: "personal-brand-instagram",
+      excerpt: "Your personal brand shapes how people see you. Here's how to build one intentionally on Instagram, starting from zero followers.",
+      date: "January 5, 2025",
+      category: "Personal Branding",
+      readTime: "13 min read",
+      image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&auto=format&fit=crop&q=80",
+      featured: true,
+      written: true
+    },
+    {
+      title: "What Is a Good Instagram Engagement Rate in 2025?",
+      slug: "instagram-engagement-rate",
+      excerpt: "Industry benchmarks by follower size and niche, with proven strategies to boost your engagement rate and attract brand deals.",
+      date: "January 20, 2025",
+      category: "Analytics",
+      readTime: "11 min read",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format&fit=crop&q=80",
       featured: true,
       written: true
     },
@@ -37,6 +62,8 @@ export default function BestEditingAppsPost() {
       excerpt: "Turn your Instagram Reels into income. Learn about bonuses, brand deals, affiliate marketing, and all monetization strategies.",
       date: "January 2, 2025",
       category: "Monetization",
+      readTime: "12 min read",
+      image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600&auto=format&fit=crop&q=80",
       written: true
     },
     {
@@ -45,6 +72,8 @@ export default function BestEditingAppsPost() {
       excerpt: "Master the art of hooking viewers in the first 3 seconds. Get 50+ proven hook formulas that increase watch time and engagement.",
       date: "January 2, 2025",
       category: "Content Creation",
+      readTime: "10 min read",
+      image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600&auto=format&fit=crop&q=80",
       written: true
     },
     {
@@ -53,38 +82,68 @@ export default function BestEditingAppsPost() {
       excerpt: "Understanding the Instagram algorithm is key to success. Learn how Instagram ranks content and optimize your Reels for maximum reach.",
       date: "January 1, 2025",
       category: "Algorithm",
+      readTime: "12 min read",
+      image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=600&auto=format&fit=crop&q=80",
       written: true
     },
     {
       title: "How to Download Instagram Reels Without Watermark",
       slug: "download-without-watermark",
-      excerpt: "Learn the easiest methods to download Instagram Reels without watermarks. Step-by-step guide with tips for maintaining video quality.",
+      excerpt: "Three methods for downloading Instagram Reels in HD without watermarks — compared and ranked from easiest to most complicated.",
       date: "December 30, 2024",
       category: "Tutorials",
+      readTime: "8 min read",
+      image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&auto=format&fit=crop&q=80",
       written: true
     },
     {
       title: "Viral Instagram Reels Tips: How to Create Content That Explodes",
       slug: "viral-reels-tips",
-      excerpt: "Discover the secrets to creating viral Instagram Reels. Learn proven strategies, formats, and techniques that top creators use.",
+      excerpt: "12 proven strategies for creating Instagram Reels that consistently go viral — including the hook formula top creators use.",
       date: "December 29, 2024",
       category: "Content Creation",
+      readTime: "11 min read",
+      image: "https://images.unsplash.com/photo-1596638787647-904d822d751e?w=600&auto=format&fit=crop&q=80",
       written: true
     },
     {
       title: "Instagram Reels vs TikTok: Which Platform to Choose in 2025",
       slug: "reels-vs-tiktok",
-      excerpt: "Comprehensive comparison of Instagram Reels and TikTok. Find out which platform is best for your content and goals.",
+      excerpt: "An honest comparison covering reach, monetization, audience demographics, and long-term strategy for creators in 2025.",
       date: "December 28, 2024",
       category: "Comparison",
+      readTime: "11 min read",
+      image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=600&auto=format&fit=crop&q=80",
       written: true
     },
     {
       title: "Best Time to Post Instagram Reels for Maximum Engagement",
       slug: "best-posting-times",
-      excerpt: "Timing is everything on Instagram. Learn the optimal times to post Reels based on your audience, industry, and location.",
+      excerpt: "Data-driven breakdown of optimal posting times by day of week and niche — plus how to find your specific best windows.",
       date: "December 27, 2024",
       category: "Strategy",
+      readTime: "10 min read",
+      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&auto=format&fit=crop&q=80",
+      written: true
+    },
+    {
+      title: "How to Make Instagram Reels Without Showing Your Face",
+      slug: "instagram-reels-without-showing-face",
+      excerpt: "7 profitable niches where faceless content thrives — plus filming techniques, audio strategies, and monetization tips.",
+      date: "January 10, 2025",
+      category: "Content Strategy",
+      readTime: "9 min read",
+      image: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=600&auto=format&fit=crop&q=80",
+      written: true
+    },
+    {
+      title: "How to Repurpose One Piece of Content Across 5 Platforms",
+      slug: "repurpose-instagram-content",
+      excerpt: "The exact system for turning one Instagram Reel into content for TikTok, YouTube Shorts, Pinterest, Twitter, and LinkedIn.",
+      date: "January 15, 2025",
+      category: "Productivity",
+      readTime: "10 min read",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop&q=80",
       written: true
     },
     {
@@ -93,6 +152,8 @@ export default function BestEditingAppsPost() {
       excerpt: "Master hashtag strategy to boost your Instagram reach. Learn research methods, best practices, and trending strategies.",
       date: "December 26, 2024",
       category: "Strategy",
+      readTime: "9 min read",
+      image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=600&auto=format&fit=crop&q=80",
       written: true
     },
     {
@@ -101,25 +162,28 @@ export default function BestEditingAppsPost() {
       excerpt: "Never run out of content ideas again. Get 200+ proven Instagram Reels ideas organized by niche and content type.",
       date: "December 25, 2024",
       category: "Content Ideas",
+      readTime: "15 min read",
+      image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&auto=format&fit=crop&q=80",
       written: true
     },
-        {
+    {
       title: "Best Video Editing Apps for Instagram Reels in 2025",
       slug: "best-editing-apps",
       excerpt: "Discover the top video editing apps for creating stunning Instagram Reels. Compare features, pricing, and find the perfect tool.",
       date: "December 24, 2024",
       category: "Tools",
+      readTime: "8 min read",
+      image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&auto=format&fit=crop&q=80",
       written: true
     },
-    
-    // NEW POSTS TO BE WRITTEN
-
     {
       title: "Instagram Analytics Masterclass: Understanding Your Data",
       slug: "instagram-analytics-guide",
       excerpt: "Master Instagram Analytics to make data-driven decisions. Learn which metrics matter and how to interpret your insights.",
       date: "December 23, 2024",
       category: "Analytics",
+      readTime: "10 min read",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format&fit=crop&q=80",
       written: true
     },
     {
@@ -128,6 +192,8 @@ export default function BestEditingAppsPost() {
       excerpt: "Proven strategies to grow your Instagram following organically. Learn tactics used by successful creators and brands.",
       date: "December 22, 2024",
       category: "Growth",
+      readTime: "12 min read",
+      image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&auto=format&fit=crop&q=80",
       written: true
     },
     {
@@ -136,6 +202,8 @@ export default function BestEditingAppsPost() {
       excerpt: "Plan your Instagram content like a pro. Get templates, strategies, and tips for consistent posting that drives results.",
       date: "December 21, 2024",
       category: "Planning",
+      readTime: "9 min read",
+      image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=600&auto=format&fit=crop&q=80",
       written: true
     },
     {
@@ -144,6 +212,8 @@ export default function BestEditingAppsPost() {
       excerpt: "Master Instagram SEO to increase discoverability. Learn keyword optimization, hashtag strategy, and profile optimization.",
       date: "December 20, 2024",
       category: "SEO",
+      readTime: "10 min read",
+      image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=600&auto=format&fit=crop&q=80",
       written: true
     },
     {
@@ -152,6 +222,8 @@ export default function BestEditingAppsPost() {
       excerpt: "Avoid these common mistakes that hurt your Reels performance. Learn what not to do and how to fix your strategy.",
       date: "December 19, 2024",
       category: "Tips",
+      readTime: "8 min read",
+      image: "https://images.unsplash.com/photo-1596638787647-904d822d751e?w=600&auto=format&fit=crop&q=80",
       written: true
     },
     {
@@ -160,6 +232,8 @@ export default function BestEditingAppsPost() {
       excerpt: "Land your first brand deal on Instagram. Learn how to pitch brands, negotiate rates, and create winning partnerships.",
       date: "December 18, 2024",
       category: "Business",
+      readTime: "11 min read",
+      image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=600&auto=format&fit=crop&q=80",
       written: true
     },
     {
@@ -168,6 +242,8 @@ export default function BestEditingAppsPost() {
       excerpt: "Essential tools for creating professional Instagram content. From filming to editing to scheduling—everything you need.",
       date: "December 17, 2024",
       category: "Tools",
+      readTime: "9 min read",
+      image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&auto=format&fit=crop&q=80",
       written: true
     },
     {
@@ -176,6 +252,8 @@ export default function BestEditingAppsPost() {
       excerpt: "Set up your Instagram business account the right way. Learn features, benefits, and optimization strategies.",
       date: "December 16, 2024",
       category: "Business",
+      readTime: "8 min read",
+      image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600&auto=format&fit=crop&q=80",
       written: true
     },
   ];
@@ -228,12 +306,16 @@ export default function BestEditingAppsPost() {
                     href={`/blog/${article.slug}`}
                     className="group bg-white rounded-2xl shadow-lg border-2 border-blue-200 overflow-hidden hover:shadow-xl hover:border-blue-400 transition-all"
                   >
-                    <div className="h-56 bg-gradient-to-br from-red-500 to-pink-600 flex items-center justify-center">
-                      <span className="text-8xl">⚖️</span>
+                    <div className="h-56 overflow-hidden">
+                      <img
+                        src={article.image}
+                        alt={article.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
                     </div>
                     <div className="p-6">
-                      <div className="flex items-center gap-2 text-xs text-red-600 font-semibold mb-3">
-                        <span className="px-3 py-1 bg-red-50 rounded-full">{article.category}</span>
+                      <div className="flex items-center gap-2 text-xs font-semibold mb-3">
+                        <span className="px-3 py-1 bg-blue-50 text-blue-600 rounded-full">{article.category}</span>
                         <span className="px-3 py-1 bg-yellow-50 text-yellow-600 rounded-full">★ Featured</span>
                       </div>
                       <h2 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
@@ -241,9 +323,12 @@ export default function BestEditingAppsPost() {
                       </h2>
                       <p className="text-gray-600 mb-4">{article.excerpt}</p>
                       <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2 text-sm text-gray-500">
-                          <Calendar className="w-4 h-4" />
-                          <span>{article.date}</span>
+                        <div className="flex items-center gap-3 text-sm text-gray-500">
+                          <div className="flex items-center gap-1">
+                            <Calendar className="w-4 h-4" />
+                            <span>{article.date}</span>
+                          </div>
+                          {article.readTime && <span>· {article.readTime}</span>}
                         </div>
                         <ArrowRight className="w-5 h-5 text-blue-600 group-hover:translate-x-1 transition-transform" />
                       </div>
@@ -264,8 +349,18 @@ export default function BestEditingAppsPost() {
                   href={`/blog/${article.slug}`}
                   className="group bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-all"
                 >
-                  <div className="h-48 bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
-                    <span className="text-6xl">📱</span>
+                  <div className="h-48 overflow-hidden">
+                    {article.image ? (
+                      <img
+                        src={article.image}
+                        alt={article.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
+                        <span className="text-5xl">📱</span>
+                      </div>
+                    )}
                   </div>
                   <div className="p-6">
                     <div className="flex items-center gap-2 text-xs font-semibold mb-3">
@@ -279,9 +374,12 @@ export default function BestEditingAppsPost() {
                     </h2>
                     <p className="text-gray-600 mb-4 line-clamp-2">{article.excerpt}</p>
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2 text-sm text-gray-500">
-                        <Calendar className="w-4 h-4" />
-                        <span>{article.date}</span>
+                      <div className="flex items-center gap-3 text-sm text-gray-500">
+                        <div className="flex items-center gap-1">
+                          <Calendar className="w-4 h-4" />
+                          <span>{article.date}</span>
+                        </div>
+                        {article.readTime && <span>· {article.readTime}</span>}
                       </div>
                       <ArrowRight className="w-5 h-5 text-blue-600 group-hover:translate-x-1 transition-transform" />
                     </div>

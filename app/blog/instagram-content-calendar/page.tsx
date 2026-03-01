@@ -54,16 +54,16 @@ export default function ContentCalendarPost() {
             </div>
           </div>
 
-          <div className="h-96 bg-gradient-to-br from-orange-500 via-red-500 to-pink-500 rounded-2xl flex items-center justify-center mb-12">
-            <span className="text-9xl">📅</span>
+          <div className="mb-12 rounded-2xl overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=900&auto=format&fit=crop&q=80" alt="Planning calendar for content creation" className="w-full h-80 object-cover" />
           </div>
 
           <div className="prose prose-lg max-w-none">
-            
+
             <div className="bg-orange-50 rounded-2xl p-8 mb-12 border-2 border-orange-200">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Why You Need a Content Calendar</h3>
               <p className="text-gray-700 leading-relaxed">
-                A content calendar eliminates the stress of "what should I post today?" It keeps you consistent, strategic, and ahead of trends. 
+                A content calendar eliminates the stress of "what should I post today?" It keeps you consistent, strategic, and ahead of trends.
                 This guide shows you how to create a content calendar that saves time, maintains quality, and drives growth. Never scramble for content ideas again.
               </p>
             </div>
@@ -88,28 +88,28 @@ export default function ContentCalendarPost() {
 
             <div className="bg-white rounded-xl border-2 border-blue-200 p-6 mb-8">
               <h4 className="text-lg font-bold text-gray-900 mb-3">Calendar Tools Options:</h4>
-              
+
               <div className="space-y-4 text-gray-700">
                 <div>
                   <p className="font-bold mb-1">📱 Notion (Recommended)</p>
                   <p className="text-sm">Free, flexible, can include notes, images, links. Perfect for detailed planning.</p>
                 </div>
-                
+
                 <div>
                   <p className="font-bold mb-1">📊 Google Sheets</p>
                   <p className="text-sm">Simple, shareable, great for teams. Easy to filter and sort.</p>
                 </div>
-                
+
                 <div>
                   <p className="font-bold mb-1">📆 Trello</p>
                   <p className="text-sm">Visual board view, drag-and-drop. Good for seeing content pipeline.</p>
                 </div>
-                
+
                 <div>
                   <p className="font-bold mb-1">🎯 Later / Planoly / Buffer</p>
                   <p className="text-sm">All-in-one scheduling + calendar. Visual grid preview. Paid options.</p>
                 </div>
-                
+
                 <div>
                   <p className="font-bold mb-1">📝 Physical Planner</p>
                   <p className="text-sm">For those who prefer pen and paper. Tangible and distraction-free.</p>
@@ -125,7 +125,7 @@ export default function ContentCalendarPost() {
 
             <div className="bg-purple-50 rounded-xl p-6 mb-8">
               <h4 className="text-lg font-bold text-gray-900 mb-3">Recommended Posting Schedule by Account Size:</h4>
-              
+
               <div className="space-y-3 text-gray-700">
                 <div>
                   <p className="font-bold">Small Account (0-10K followers):</p>
@@ -135,7 +135,7 @@ export default function ContentCalendarPost() {
                     <li>• Stories: Daily (5-10 per day)</li>
                   </ul>
                 </div>
-                
+
                 <div>
                   <p className="font-bold">Medium Account (10K-100K):</p>
                   <ul className="text-sm ml-4 mt-1">
@@ -144,7 +144,7 @@ export default function ContentCalendarPost() {
                     <li>• Stories: Multiple times daily</li>
                   </ul>
                 </div>
-                
+
                 <div>
                   <p className="font-bold">Large Account (100K+):</p>
                   <ul className="text-sm ml-4 mt-1">
@@ -164,7 +164,7 @@ export default function ContentCalendarPost() {
 
             <div className="bg-white rounded-xl border-2 border-pink-200 p-6 mb-8">
               <h4 className="text-lg font-bold text-gray-900 mb-3">Content Theme Examples:</h4>
-              
+
               <div className="space-y-3 text-gray-700">
                 <p><strong>Monday:</strong> Motivation Monday - Inspirational content, success stories</p>
                 <p><strong>Tuesday:</strong> Tutorial Tuesday - Educational how-to content</p>
@@ -173,7 +173,7 @@ export default function ContentCalendarPost() {
                 <p><strong>Friday:</strong> Fun Friday - Entertaining, lighter content</p>
                 <p><strong>Weekend:</strong> Community content, user-generated content features</p>
               </div>
-              
+
               <p className="text-sm text-pink-600 mt-4">
                 <strong>Note:</strong> These themes are flexible guidelines, not strict rules
               </p>
@@ -183,7 +183,7 @@ export default function ContentCalendarPost() {
 
             <div className="bg-yellow-50 rounded-xl p-6 mb-8">
               <h4 className="text-lg font-bold text-gray-900 mb-3">The 5 Content Bucket System:</h4>
-              
+
               <ol className="space-y-3 text-gray-700">
                 <li><strong>1. Educational (40%):</strong> Teach something valuable - tutorials, tips, how-tos</li>
                 <li><strong>2. Inspirational (20%):</strong> Motivate and encourage - quotes, success stories, transformations</li>
@@ -227,7 +227,7 @@ export default function ContentCalendarPost() {
 
             <div className="bg-white rounded-xl border-2 border-indigo-200 p-6 mb-8">
               <h4 className="text-lg font-bold text-gray-900 mb-3">Essential Calendar Columns/Fields:</h4>
-              
+
               <ul className="space-y-2 text-gray-700">
                 <li>📅 <strong>Date & Time:</strong> When to post</li>
                 <li>📱 <strong>Platform:</strong> Instagram (Feed/Reel/Story/Carousel)</li>
@@ -252,28 +252,28 @@ export default function ContentCalendarPost() {
 
             <div className="bg-orange-50 rounded-xl p-6 mb-8">
               <h4 className="text-lg font-bold text-gray-900 mb-3">Batching Process:</h4>
-              
+
               <div className="space-y-4 text-gray-700">
                 <div>
                   <p className="font-bold mb-1">Planning Session (2 hours, monthly)</p>
                   <p className="text-sm">Brainstorm ideas, fill calendar, plan themes</p>
                 </div>
-                
+
                 <div>
                   <p className="font-bold mb-1">Filming Day (3-4 hours, weekly)</p>
                   <p className="text-sm">Film 5-10 Reels in one session, multiple outfits if needed</p>
                 </div>
-                
+
                 <div>
                   <p className="font-bold mb-1">Editing Session (2-3 hours, weekly)</p>
                   <p className="text-sm">Edit all videos for the week in one sitting</p>
                 </div>
-                
+
                 <div>
                   <p className="font-bold mb-1">Caption Writing (1-2 hours, weekly)</p>
                   <p className="text-sm">Write all captions when you're in "writing mode"</p>
                 </div>
-                
+
                 <div>
                   <p className="font-bold mb-1">Scheduling (30 minutes, weekly)</p>
                   <p className="text-sm">Upload and schedule everything for the week</p>
@@ -301,7 +301,7 @@ export default function ContentCalendarPost() {
 
             <div className="bg-blue-50 rounded-xl p-6 mb-8">
               <h4 className="text-lg font-bold text-gray-900 mb-3">30 Quick Content Ideas:</h4>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-gray-700">
                 <div>
                   <p>1. Share a mistake you made</p>
@@ -344,7 +344,7 @@ export default function ContentCalendarPost() {
 
             <div className="bg-pink-50 rounded-xl p-6 mb-8">
               <h4 className="text-lg font-bold text-gray-900 mb-3">2025 Key Dates to Plan For:</h4>
-              
+
               <div className="space-y-3 text-gray-700 text-sm">
                 <p><strong>January:</strong> New Year goals, fresh starts, planning content</p>
                 <p><strong>February:</strong> Valentine's Day, self-love, partnerships</p>
@@ -359,7 +359,7 @@ export default function ContentCalendarPost() {
                 <p><strong>November:</strong> Thanksgiving, gratitude, Black Friday</p>
                 <p><strong>December:</strong> Holidays, year-end reflection, gift guides</p>
               </div>
-              
+
               <p className="text-sm text-pink-600 mt-4">
                 <strong>Plan these 2-3 weeks in advance</strong> for maximum impact
               </p>
@@ -369,7 +369,7 @@ export default function ContentCalendarPost() {
 
             <div className="bg-white rounded-xl border-2 border-green-200 p-6 mb-8">
               <h4 className="text-lg font-bold text-gray-900 mb-3">Recommended Tools by Function:</h4>
-              
+
               <div className="space-y-4 text-gray-700">
                 <div>
                   <p className="font-bold">📝 Planning & Organization:</p>
@@ -379,7 +379,7 @@ export default function ContentCalendarPost() {
                     <li>• Asana - Team project management</li>
                   </ul>
                 </div>
-                
+
                 <div>
                   <p className="font-bold">📅 Scheduling:</p>
                   <ul className="text-sm ml-4 mt-1">
@@ -388,7 +388,7 @@ export default function ContentCalendarPost() {
                     <li>• Meta Business Suite - Free for Instagram/Facebook</li>
                   </ul>
                 </div>
-                
+
                 <div>
                   <p className="font-bold">🎨 Content Creation:</p>
                   <ul className="text-sm ml-4 mt-1">
@@ -397,7 +397,7 @@ export default function ContentCalendarPost() {
                     <li>• Descript - Video editing with transcription</li>
                   </ul>
                 </div>
-                
+
                 <div>
                   <p className="font-bold">📊 Analytics:</p>
                   <ul className="text-sm ml-4 mt-1">
@@ -428,33 +428,33 @@ export default function ContentCalendarPost() {
 
             <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-6 mb-8">
               <h4 className="text-lg font-bold text-gray-900 mb-3">Example Week (Fitness Niche):</h4>
-              
+
               <div className="space-y-3 text-sm text-gray-700">
                 <div className="border-l-4 border-blue-500 pl-4">
                   <p className="font-bold">Monday 9 AM - Reel</p>
                   <p>"5 mistakes killing your gains" (Educational)</p>
                 </div>
-                
+
                 <div className="border-l-4 border-green-500 pl-4">
                   <p className="font-bold">Tuesday 2 PM - Carousel</p>
                   <p>"Leg day workout guide" (Educational)</p>
                 </div>
-                
+
                 <div className="border-l-4 border-purple-500 pl-4">
                   <p className="font-bold">Wednesday 10 AM - Reel</p>
                   <p>"When someone says they skip leg day" (Entertaining)</p>
                 </div>
-                
+
                 <div className="border-l-4 border-orange-500 pl-4">
                   <p className="font-bold">Thursday 3 PM - Reel</p>
                   <p>"My 5 AM morning routine" (Inspirational/BTS)</p>
                 </div>
-                
+
                 <div className="border-l-4 border-pink-500 pl-4">
                   <p className="font-bold">Friday 11 AM - Reel</p>
                   <p>"Quick protein shake recipe" (Educational)</p>
                 </div>
-                
+
                 <div className="border-l-4 border-red-500 pl-4">
                   <p className="font-bold">Sunday 7 PM - Carousel</p>
                   <p>"This week's workout wins (UGC feature)" (Community)</p>
@@ -492,18 +492,18 @@ export default function ContentCalendarPost() {
             <div className="bg-gradient-to-r from-orange-600 to-red-600 rounded-2xl p-8 text-white mt-12">
               <h2 className="text-2xl font-bold mb-4">Start Planning Today</h2>
               <p className="text-orange-100 mb-6">
-                A content calendar transforms Instagram from overwhelming to manageable. Start with one month, keep it simple, and adjust as you go. 
+                A content calendar transforms Instagram from overwhelming to manageable. Start with one month, keep it simple, and adjust as you go.
                 The goal is consistency, not perfection. Your future self will thank you!
               </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-                <Link 
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
                   href="/"
                   className="inline-flex items-center justify-center gap-2 bg-white text-orange-600 px-6 py-3 rounded-xl font-bold hover:bg-orange-50 transition-colors"
                 >
                   <Video className="w-5 h-5" />
                   Try ReelGrab Free
                 </Link>
-                <Link 
+                <Link
                   href="/blog"
                   className="inline-flex items-center justify-center gap-2 bg-orange-500 text-white px-6 py-3 rounded-xl font-bold hover:bg-orange-400 transition-colors border-2 border-orange-400"
                 >

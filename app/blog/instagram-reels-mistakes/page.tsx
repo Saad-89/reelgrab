@@ -54,17 +54,17 @@ export default function ReelsMistakesPost() {
             </div>
           </div>
 
-          <div className="h-96 bg-gradient-to-br from-red-500 via-orange-500 to-yellow-500 rounded-2xl flex items-center justify-center mb-12">
-            <span className="text-9xl">⚠️</span>
+          <div className="mb-12 rounded-2xl overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=900&auto=format&fit=crop&q=80" alt="Creator reviewing Instagram content on phone" className="w-full h-80 object-cover" />
           </div>
 
           <div className="prose prose-lg max-w-none">
-            
+
             <div className="bg-red-50 rounded-2xl p-8 mb-12 border-2 border-red-200">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Why Your Reels Aren't Performing</h3>
               <p className="text-gray-700 leading-relaxed">
-                If your Reels are getting low views, poor engagement, or not reaching new audiences, you're likely making one (or more) of these 
-                critical mistakes. The good news? They're all fixable. This guide identifies the 15 most common Reels mistakes and shows you 
+                If your Reels are getting low views, poor engagement, or not reaching new audiences, you're likely making one (or more) of these
+                critical mistakes. The good news? They're all fixable. This guide identifies the 15 most common Reels mistakes and shows you
                 exactly how to correct them for immediate improvement.
               </p>
             </div>
@@ -83,7 +83,7 @@ export default function ReelsMistakesPost() {
                   </p>
                 </div>
               </div>
-              
+
               <div className="flex items-start gap-3 bg-green-50 rounded p-4">
                 <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
                 <div>
@@ -110,7 +110,7 @@ export default function ReelsMistakesPost() {
                   </p>
                 </div>
               </div>
-              
+
               <div className="flex items-start gap-3 bg-green-50 rounded p-4">
                 <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
                 <div>
@@ -137,7 +137,7 @@ export default function ReelsMistakesPost() {
                   </p>
                 </div>
               </div>
-              
+
               <div className="flex items-start gap-3 bg-green-50 rounded p-4">
                 <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
                 <div>
@@ -165,7 +165,7 @@ export default function ReelsMistakesPost() {
                   </p>
                 </div>
               </div>
-              
+
               <div className="flex items-start gap-3 bg-green-50 rounded p-4">
                 <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
                 <div>
@@ -192,7 +192,7 @@ export default function ReelsMistakesPost() {
                   </p>
                 </div>
               </div>
-              
+
               <div className="flex items-start gap-3 bg-green-50 rounded p-4">
                 <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
                 <div>
@@ -221,7 +221,7 @@ export default function ReelsMistakesPost() {
                   </p>
                 </div>
               </div>
-              
+
               <div className="flex items-start gap-3 bg-green-50 rounded p-4">
                 <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
                 <div>
@@ -248,7 +248,7 @@ export default function ReelsMistakesPost() {
                   </p>
                 </div>
               </div>
-              
+
               <div className="flex items-start gap-3 bg-green-50 rounded p-4">
                 <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
                 <div>
@@ -275,7 +275,7 @@ export default function ReelsMistakesPost() {
                   </p>
                 </div>
               </div>
-              
+
               <div className="flex items-start gap-3 bg-green-50 rounded p-4">
                 <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
                 <div>
@@ -303,7 +303,7 @@ export default function ReelsMistakesPost() {
                   </p>
                 </div>
               </div>
-              
+
               <div className="flex items-start gap-3 bg-green-50 rounded p-4">
                 <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
                 <div>
@@ -330,7 +330,7 @@ export default function ReelsMistakesPost() {
                   </p>
                 </div>
               </div>
-              
+
               <div className="flex items-start gap-3 bg-green-50 rounded p-4">
                 <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
                 <div>
@@ -360,7 +360,7 @@ export default function ReelsMistakesPost() {
                   </p>
                 </div>
               </div>
-              
+
               <div className="flex items-start gap-3 bg-green-50 rounded p-4">
                 <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
                 <div>
@@ -388,7 +388,7 @@ export default function ReelsMistakesPost() {
                   </p>
                 </div>
               </div>
-              
+
               <div className="flex items-start gap-3 bg-green-50 rounded p-4">
                 <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
                 <div>
@@ -415,7 +415,7 @@ export default function ReelsMistakesPost() {
                   </p>
                 </div>
               </div>
-              
+
               <div className="flex items-start gap-3 bg-green-50 rounded p-4">
                 <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
                 <div>
@@ -445,7 +445,7 @@ export default function ReelsMistakesPost() {
                   </p>
                 </div>
               </div>
-              
+
               <div className="flex items-start gap-3 bg-green-50 rounded p-4">
                 <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
                 <div>
@@ -472,7 +472,7 @@ export default function ReelsMistakesPost() {
                   </p>
                 </div>
               </div>
-              
+
               <div className="flex items-start gap-3 bg-green-50 rounded p-4">
                 <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
                 <div>
@@ -492,7 +492,7 @@ export default function ReelsMistakesPost() {
 
             <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 mb-8">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Before Posting Every Reel:</h3>
-              
+
               <div className="space-y-3 text-gray-700">
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
@@ -544,7 +544,7 @@ export default function ReelsMistakesPost() {
               <p className="text-gray-700 mb-4">
                 If your recent Reels have been flopping, here's how to bounce back:
               </p>
-              
+
               <ol className="space-y-3 text-gray-700">
                 <li><strong>1. Audit last 10 posts:</strong> Identify which mistakes you're making most</li>
                 <li><strong>2. Delete lowest performers:</strong> Posts with under 100 views after 48 hours (optional)</li>
@@ -561,7 +561,7 @@ export default function ReelsMistakesPost() {
 
             <div className="bg-green-50 rounded-xl p-6 mb-8">
               <h4 className="text-lg font-bold text-gray-900 mb-3">What "Good" Performance Looks Like:</h4>
-              
+
               <div className="space-y-4 text-gray-700">
                 <div>
                   <p className="font-bold mb-2">Views (based on follower count):</p>
@@ -571,7 +571,7 @@ export default function ReelsMistakesPost() {
                     <li>• Large accounts (100K+): 50K-200K = good, 500K+ = excellent</li>
                   </ul>
                 </div>
-                
+
                 <div>
                   <p className="font-bold mb-2">Engagement Rate:</p>
                   <ul className="text-sm ml-4 space-y-1">
@@ -581,7 +581,7 @@ export default function ReelsMistakesPost() {
                     <li>• 8%+ = Excellent</li>
                   </ul>
                 </div>
-                
+
                 <div>
                   <p className="font-bold mb-2">Completion Rate:</p>
                   <ul className="text-sm ml-4 space-y-1">
@@ -598,7 +598,7 @@ export default function ReelsMistakesPost() {
 
             <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-8 mb-8">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Transform Your Results in One Month</h3>
-              
+
               <div className="space-y-6 text-gray-700">
                 <div>
                   <h4 className="font-bold mb-2">Week 1: Identify & Eliminate</h4>
@@ -709,19 +709,19 @@ export default function ReelsMistakesPost() {
             <div className="bg-gradient-to-r from-red-600 to-orange-600 rounded-2xl p-8 text-white mt-12">
               <h2 className="text-2xl font-bold mb-4">Stop Making These Mistakes Today</h2>
               <p className="text-orange-100 mb-6">
-                Every mistake you fix is a step toward better performance. You don't need to be perfect - you just need to be better than yesterday. 
-                Pick your top 3 mistakes from this list, commit to fixing them this week, and watch your Reels performance improve. The algorithm 
+                Every mistake you fix is a step toward better performance. You don't need to be perfect - you just need to be better than yesterday.
+                Pick your top 3 mistakes from this list, commit to fixing them this week, and watch your Reels performance improve. The algorithm
                 rewards quality and consistency - give it both!
               </p>
               <div className="flex gap-4">
-                <Link 
-                  href="/blog/instagram-reels-hooks" 
+                <Link
+                  href="/blog/instagram-reels-hooks"
                   className="inline-block bg-white text-red-600 font-semibold px-6 py-3 rounded-xl hover:bg-red-50 transition-all"
                 >
                   Learn Hook Formulas
                 </Link>
-                <Link 
-                  href="/blog" 
+                <Link
+                  href="/blog"
                   className="inline-block bg-red-500 text-white font-semibold px-6 py-3 rounded-xl hover:bg-red-400 transition-all"
                 >
                   More Reels Tips

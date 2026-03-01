@@ -42,8 +42,8 @@ export default function InstagramCarouselPostsGuide2025() {
             </p>
           </div>
 
-          <div className="h-96 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mb-12">
-            <span className="text-9xl">📚</span>
+          <div className="mb-12 rounded-2xl overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900&auto=format&fit=crop&q=80" alt="Creating carousel content on a smartphone" className="w-full h-80 object-cover" />
           </div>
 
           <div className="prose prose-lg max-w-none">
@@ -61,7 +61,7 @@ export default function InstagramCarouselPostsGuide2025() {
             </div>
 
             <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Chapter 1: Understanding Carousel Posts</h2>
-            
+
             <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">What Are Carousel Posts?</h3>
             <p className="text-gray-700 leading-relaxed mb-6">
               Instagram carousel posts allow you to share up to 20 photos or videos in a single post. Users can swipe through the carousel to see all the content. Carousels can include a mix of images and videos, making them incredibly versatile for storytelling and engagement.
@@ -411,14 +411,14 @@ export default function InstagramCarouselPostsGuide2025() {
                 Carousel posts are one of the most powerful content formats on Instagram. They allow you to tell complete stories, provide comprehensive value, and generate higher engagement than single-image posts. Start experimenting with carousels today, measure what works, and continuously refine your approach.
               </p>
               <div className="flex gap-4">
-                <Link 
-                  href="/" 
+                <Link
+                  href="/"
                   className="inline-block bg-orange-600 text-white font-semibold px-8 py-3 rounded-xl hover:bg-orange-700 transition-all"
                 >
                   Download Reels for Study
                 </Link>
-                <Link 
-                  href="/guides" 
+                <Link
+                  href="/guides"
                   className="inline-block bg-white border-2 border-orange-600 text-orange-600 font-semibold px-8 py-3 rounded-xl hover:bg-orange-50 transition-all"
                 >
                   More Guides

@@ -49,16 +49,16 @@ export default function ReelsMonetizationPost() {
             </div>
           </div>
 
-          <div className="h-96 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-12">
-            <span className="text-9xl">💰</span>
+          <div className="mb-12 rounded-2xl overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=900&auto=format&fit=crop&q=80" alt="Earning money from social media content creation" className="w-full h-80 object-cover" />
           </div>
 
           <div className="prose prose-lg max-w-none">
-            
+
             <div className="bg-green-50 rounded-2xl p-8 mb-12 border-2 border-green-200">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Why Monetize Your Reels?</h3>
               <p className="text-gray-700 leading-relaxed">
-                Instagram Reels have become one of the most lucrative content formats on social media. With billions of views daily, creators are earning 
+                Instagram Reels have become one of the most lucrative content formats on social media. With billions of views daily, creators are earning
                 thousands—even millions—of dollars from their Reels. This comprehensive guide shows you every way to monetize your Instagram Reels in 2025.
               </p>
             </div>
@@ -322,18 +322,18 @@ export default function ReelsMonetizationPost() {
             <div className="bg-gradient-to-r from-green-600 to-emerald-600 rounded-2xl p-8 text-white mt-12">
               <h2 className="text-2xl font-bold mb-4">Start Monetizing Your Reels Today</h2>
               <p className="text-green-100 mb-6">
-                Every successful creator started with zero followers and zero income. The key is to start now, stay consistent, and continuously improve your content. 
+                Every successful creator started with zero followers and zero income. The key is to start now, stay consistent, and continuously improve your content.
                 Your first dollar on Instagram could be just weeks away!
               </p>
               <div className="flex gap-4">
-                <Link 
-                  href="/guides/instagram-marketing-strategy-2025" 
+                <Link
+                  href="/guides/instagram-marketing-strategy-2025"
                   className="inline-block bg-white text-green-600 font-semibold px-6 py-3 rounded-xl hover:bg-green-50 transition-all"
                 >
                   Marketing Strategy Guide
                 </Link>
-                <Link 
-                  href="/blog" 
+                <Link
+                  href="/blog"
                   className="inline-block bg-green-500 text-white font-semibold px-6 py-3 rounded-xl hover:bg-green-400 transition-all"
                 >
                   More Money-Making Tips

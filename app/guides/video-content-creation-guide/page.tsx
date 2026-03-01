@@ -43,8 +43,8 @@ export default function VideoContentCreationGuide() {
             </p>
           </div>
 
-          <div className="h-96 bg-gradient-to-br from-red-500 to-orange-600 rounded-2xl flex items-center justify-center mb-12">
-            <span className="text-9xl">🎬</span>
+          <div className="mb-12 rounded-2xl overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=900&auto=format&fit=crop&q=80" alt="Video content creation with camera and lighting" className="w-full h-80 object-cover" />
           </div>
 
           <div className="prose prose-lg max-w-none">
@@ -116,7 +116,7 @@ export default function VideoContentCreationGuide() {
             </p>
 
             <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Essential Equipment by Budget</h3>
-            
+
             <h4 className="text-xl font-bold text-gray-900 mt-6 mb-3">Budget Setup ($50-200)</h4>
             <ul className="list-disc pl-6 mb-6 text-gray-700 space-y-2">
               <li><strong>Smartphone:</strong> Your existing phone (most have excellent cameras)</li>
@@ -152,7 +152,7 @@ export default function VideoContentCreationGuide() {
             <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Chapter 3: Camera Settings and Techniques</h2>
 
             <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Essential Camera Settings</h3>
-            
+
             <h4 className="text-xl font-bold text-gray-900 mt-6 mb-3">Resolution and Frame Rate</h4>
             <p className="text-gray-700 leading-relaxed mb-6">
               For Instagram Reels and most social media:
@@ -296,7 +296,7 @@ export default function VideoContentCreationGuide() {
             <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Chapter 7: Video Editing Fundamentals</h2>
 
             <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Choosing Editing Software</h3>
-            
+
             <h4 className="text-xl font-bold text-gray-900 mt-6 mb-3">Beginner-Friendly Options</h4>
             <ul className="list-disc pl-6 mb-6 text-gray-700 space-y-2">
               <li><strong>CapCut:</strong> Free, mobile and desktop, perfect for Reels</li>
@@ -677,14 +677,14 @@ export default function VideoContentCreationGuide() {
                 Remember: Your first videos will be rough. That's normal and expected. Every successful creator started exactly where you are now. The difference is they kept going.
               </p>
               <div className="flex gap-4">
-                <Link 
-                  href="/" 
+                <Link
+                  href="/"
                   className="inline-block bg-red-600 text-white font-semibold px-8 py-3 rounded-xl hover:bg-red-700 transition-all"
                 >
                   Download Inspiration
                 </Link>
-                <Link 
-                  href="/guides" 
+                <Link
+                  href="/guides"
                   className="inline-block bg-white border-2 border-red-600 text-red-600 font-semibold px-8 py-3 rounded-xl hover:bg-red-50 transition-all"
                 >
                   More Guides

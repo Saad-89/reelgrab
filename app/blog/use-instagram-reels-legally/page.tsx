@@ -48,16 +48,16 @@ export default function UseReelsLegallyPost() {
             </div>
           </div>
 
-          <div className="h-96 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-12">
-            <span className="text-9xl">✅</span>
+          <div className="mb-12 rounded-2xl overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=900&auto=format&fit=crop&q=80" alt="Legal compliance and rights for digital content" className="w-full h-80 object-cover" />
           </div>
 
           <div className="prose prose-lg max-w-none">
-            
+
             <div className="bg-green-50 rounded-2xl p-8 mb-12 border-2 border-green-200">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Why Legal Compliance Matters</h3>
               <p className="text-gray-700 leading-relaxed">
-                Using Instagram Reels legally protects your account, your reputation, and your business. One copyright violation can result in account suspension, 
+                Using Instagram Reels legally protects your account, your reputation, and your business. One copyright violation can result in account suspension,
                 legal action, or loss of monetization. This guide shows you exactly what you can and cannot do with Instagram Reels content.
               </p>
             </div>
@@ -65,7 +65,7 @@ export default function UseReelsLegallyPost() {
             <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Understanding Instagram's Terms of Service</h2>
 
             <p className="text-gray-700 leading-relaxed mb-6">
-              Instagram's Terms of Service are a legal contract between you and Meta. By using Instagram, you agree to follow these rules. 
+              Instagram's Terms of Service are a legal contract between you and Meta. By using Instagram, you agree to follow these rules.
               Here's what you need to know about using Reels legally.
             </p>
 
@@ -89,7 +89,7 @@ export default function UseReelsLegallyPost() {
                   1. Create and Post Your Own Content
                 </h4>
                 <p className="text-gray-700 leading-relaxed">
-                  This is the safest and most straightforward option. When you film your own videos, take your own photos, and create your own audio, 
+                  This is the safest and most straightforward option. When you film your own videos, take your own photos, and create your own audio,
                   you own all the rights and can post freely. This includes:
                 </p>
                 <ul className="list-disc pl-6 mt-3 text-gray-700 space-y-2">
@@ -106,7 +106,7 @@ export default function UseReelsLegallyPost() {
                   2. Use Instagram's Built-in Music Library
                 </h4>
                 <p className="text-gray-700 leading-relaxed">
-                  Instagram provides a library of licensed music specifically for Reels. This music is pre-cleared for use on Instagram. 
+                  Instagram provides a library of licensed music specifically for Reels. This music is pre-cleared for use on Instagram.
                   You can freely use any track from this library without copyright concerns.
                 </p>
                 <ul className="list-disc pl-6 mt-3 text-gray-700 space-y-2">
@@ -229,7 +229,7 @@ export default function UseReelsLegallyPost() {
             <div className="bg-blue-50 rounded-2xl p-8 mb-12">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Golden Rule</h3>
               <p className="text-gray-700 leading-relaxed text-lg">
-                <strong>Downloaded content should remain private.</strong> Use it for learning, inspiration, and analysis—but create your own original content 
+                <strong>Downloaded content should remain private.</strong> Use it for learning, inspiration, and analysis—but create your own original content
                 for posting. Never repost, share, or commercially use downloaded content without explicit written permission from the creator.
               </p>
             </div>
@@ -264,7 +264,7 @@ export default function UseReelsLegallyPost() {
               <div className="bg-white rounded-xl border-2 border-gray-200 p-6">
                 <h4 className="text-xl font-bold text-gray-900 mb-3">1. Always Create Original Content</h4>
                 <p className="text-gray-700 leading-relaxed">
-                  The safest way to stay compliant is to create everything yourself. Film your own videos, use your own voice, 
+                  The safest way to stay compliant is to create everything yourself. Film your own videos, use your own voice,
                   and design your own graphics. Original content can never violate someone else's copyright.
                 </p>
               </div>
@@ -272,7 +272,7 @@ export default function UseReelsLegallyPost() {
               <div className="bg-white rounded-xl border-2 border-gray-200 p-6">
                 <h4 className="text-xl font-bold text-gray-900 mb-3">2. Use Only Licensed Music</h4>
                 <p className="text-gray-700 leading-relaxed">
-                  Stick to Instagram's music library or use royalty-free music from legitimate sources like Epidemic Sound, Artlist, or AudioJungle. 
+                  Stick to Instagram's music library or use royalty-free music from legitimate sources like Epidemic Sound, Artlist, or AudioJungle.
                   Never use copyrighted music from Spotify, Apple Music, or YouTube.
                 </p>
               </div>
@@ -280,7 +280,7 @@ export default function UseReelsLegallyPost() {
               <div className="bg-white rounded-xl border-2 border-gray-200 p-6">
                 <h4 className="text-xl font-bold text-gray-900 mb-3">3. Get Written Permission</h4>
                 <p className="text-gray-700 leading-relaxed">
-                  When collaborating or featuring others' content, always get written permission. Screenshot DM conversations where 
+                  When collaborating or featuring others' content, always get written permission. Screenshot DM conversations where
                   creators give you permission, and save these records.
                 </p>
               </div>
@@ -288,7 +288,7 @@ export default function UseReelsLegallyPost() {
               <div className="bg-white rounded-xl border-2 border-gray-200 p-6">
                 <h4 className="text-xl font-bold text-gray-900 mb-3">4. Give Proper Credit</h4>
                 <p className="text-gray-700 leading-relaxed">
-                  When you do have permission to use others' content, give clear credit. Tag the creator, mention them in the caption, 
+                  When you do have permission to use others' content, give clear credit. Tag the creator, mention them in the caption,
                   and make it obvious you didn't create the content. Note: Credit doesn't make unauthorized use legal, but it's required when you do have permission.
                 </p>
               </div>
@@ -296,7 +296,7 @@ export default function UseReelsLegallyPost() {
               <div className="bg-white rounded-xl border-2 border-gray-200 p-6">
                 <h4 className="text-xl font-bold text-gray-900 mb-3">5. Keep Downloaded Content Private</h4>
                 <p className="text-gray-700 leading-relaxed">
-                  If you download Reels for study or inspiration, keep them on your personal device. Don't share them with others, 
+                  If you download Reels for study or inspiration, keep them on your personal device. Don't share them with others,
                   don't repost them, and don't use them in your own public content without permission.
                 </p>
               </div>
@@ -368,18 +368,18 @@ export default function UseReelsLegallyPost() {
             <div className="bg-gradient-to-r from-green-600 to-emerald-600 rounded-2xl p-8 text-white mt-12">
               <h2 className="text-2xl font-bold mb-4">Stay Legally Compliant on Instagram</h2>
               <p className="text-green-100 mb-6">
-                Following these guidelines protects your account, respects other creators' rights, and builds a sustainable Instagram presence. 
+                Following these guidelines protects your account, respects other creators' rights, and builds a sustainable Instagram presence.
                 Always prioritize creating original content and getting proper permissions.
               </p>
               <div className="flex gap-4">
-                <Link 
-                  href="/blog/copyright-law-instagram-creators" 
+                <Link
+                  href="/blog/copyright-law-instagram-creators"
                   className="inline-block bg-white text-green-600 font-semibold px-6 py-3 rounded-xl hover:bg-green-50 transition-all"
                 >
                   Learn Copyright Law
                 </Link>
-                <Link 
-                  href="/" 
+                <Link
+                  href="/"
                   className="inline-block bg-green-500 text-white font-semibold px-6 py-3 rounded-xl hover:bg-green-400 transition-all"
                 >
                   Download Responsibly

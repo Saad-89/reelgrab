@@ -42,8 +42,8 @@ export default function InstagramAnalyticsInsightsGuide2025() {
             </p>
           </div>
 
-          <div className="h-96 bg-gradient-to-br from-green-500 to-teal-600 rounded-2xl flex items-center justify-center mb-12">
-            <span className="text-9xl">📊</span>
+          <div className="mb-12 rounded-2xl overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&auto=format&fit=crop&q=80" alt="Analytics dashboard showing social media insights" className="w-full h-80 object-cover" />
           </div>
 
           <div className="prose prose-lg max-w-none">
@@ -61,7 +61,7 @@ export default function InstagramAnalyticsInsightsGuide2025() {
             </div>
 
             <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Chapter 1: Getting Started with Instagram Insights</h2>
-            
+
             <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Accessing Instagram Insights</h3>
             <p className="text-gray-700 leading-relaxed mb-6">
               Instagram Insights is available to Business and Creator accounts. To access it:
@@ -442,14 +442,14 @@ export default function InstagramAnalyticsInsightsGuide2025() {
                 Instagram analytics provide invaluable insights into what works and what doesn't. By regularly reviewing your data, conducting A/B tests, and making data-driven decisions, you can continuously improve your content strategy and grow your account more effectively. Start tracking your metrics today and use the data to guide your content decisions.
               </p>
               <div className="flex gap-4">
-                <Link 
-                  href="/" 
+                <Link
+                  href="/"
                   className="inline-block bg-green-600 text-white font-semibold px-8 py-3 rounded-xl hover:bg-green-700 transition-all"
                 >
                   Download Reels for Study
                 </Link>
-                <Link 
-                  href="/guides" 
+                <Link
+                  href="/guides"
                   className="inline-block bg-white border-2 border-green-600 text-green-600 font-semibold px-8 py-3 rounded-xl hover:bg-green-50 transition-all"
                 >
                   More Guides

@@ -48,8 +48,8 @@ export default function HashtagStrategyPage() {
             </div>
           </div>
 
-          <div className="h-96 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center mb-12">
-            <span className="text-9xl">#️⃣</span>
+          <div className="mb-12 rounded-2xl overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=900&auto=format&fit=crop&q=80" alt="Social media hashtags and trending content" className="w-full h-80 object-cover" />
           </div>
 
           <div className="prose prose-lg max-w-none">
@@ -100,17 +100,17 @@ export default function HashtagStrategyPage() {
             </p>
 
             <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Where to Place Your Hashtags</h2>
-            
+
             <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">In the Caption</h3>
             <p className="text-gray-700 leading-relaxed mb-6">
               You can add hashtags directly in your caption. Some creators prefer to separate them with line breaks for cleaner aesthetics:
             </p>
             <div className="bg-gray-50 rounded-xl p-4 mb-6">
               <p className="text-gray-700 text-sm font-mono">
-                "Check out this amazing Reel tip!<br/><br/>
-                .<br/>
-                .<br/>
-                .<br/>
+                "Check out this amazing Reel tip!<br /><br />
+                .<br />
+                .<br />
+                .<br />
                 #reels #instagramtips #contentcreator"
               </p>
             </div>
@@ -121,7 +121,7 @@ export default function HashtagStrategyPage() {
             </p>
 
             <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">How to Find the Best Hashtags for Your Niche</h2>
-            
+
             <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Method 1: Research Competitors</h3>
             <p className="text-gray-700 leading-relaxed mb-6">
               Find successful accounts in your niche and analyze their hashtags. Download their Reels using ReelGrab and study which hashtag combinations they use consistently. Look for patterns in their best-performing content.
@@ -151,7 +151,7 @@ export default function HashtagStrategyPage() {
             </p>
 
             <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Advanced Hashtag Strategies</h2>
-            
+
             <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Create Branded Hashtags</h3>
             <p className="text-gray-700 leading-relaxed mb-6">
               Develop your own unique hashtag for your brand or campaign. Encourage followers to use it when creating related content. This builds community and makes it easy to find user-generated content.
@@ -191,8 +191,8 @@ export default function HashtagStrategyPage() {
               <p className="text-gray-700 mb-6">
                 Master hashtag strategy and watch your reach expand. Study successful creators in your niche by downloading their Reels and analyzing their hashtag patterns.
               </p>
-              <Link 
-                href="/" 
+              <Link
+                href="/"
                 className="inline-block bg-indigo-600 text-white font-semibold px-8 py-3 rounded-xl hover:bg-indigo-700 transition-all"
               >
                 Download Reels for Research

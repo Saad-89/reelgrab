@@ -58,17 +58,17 @@ export default function InstagramSEOPost() {
             </div>
           </div>
 
-          <div className="h-96 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-12">
-            <span className="text-9xl">🔍</span>
+          <div className="mb-12 rounded-2xl overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=900&auto=format&fit=crop&q=80" alt="Search engine optimization strategy on laptop" className="w-full h-80 object-cover" />
           </div>
 
           <div className="prose prose-lg max-w-none">
-            
+
             <div className="bg-blue-50 rounded-2xl p-8 mb-12 border-2 border-blue-200">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Why Instagram SEO Matters</h3>
               <p className="text-gray-700 leading-relaxed">
-                Creating Reels is one thing—creating Reels that perform is another. If your Reels are getting low views, 
-                poor engagement, or aren't reaching new audiences, you're likely making one (or more) of these critical mistakes. 
+                Creating Reels is one thing—creating Reels that perform is another. If your Reels are getting low views,
+                poor engagement, or aren't reaching new audiences, you're likely making one (or more) of these critical mistakes.
                 This guide reveals the 15 most common errors and shows you exactly how to fix them.
               </p>
             </div>
@@ -372,7 +372,7 @@ export default function InstagramSEOPost() {
 
             <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-6 mb-8">
               <h4 className="text-lg font-bold text-gray-900 mb-3">Start Here (Priority Order):</h4>
-              
+
               <ol className="space-y-2 text-gray-700">
                 <li><strong>1. Fix your hooks</strong> - Grab attention in 1 second</li>
                 <li><strong>2. Remove watermarks</strong> - Clean, native Instagram content only</li>
@@ -415,18 +415,18 @@ export default function InstagramSEOPost() {
             <div className="bg-gradient-to-r from-red-600 to-orange-600 rounded-2xl p-8 text-white mt-12">
               <h2 className="text-2xl font-bold mb-4">Fix These Mistakes Today</h2>
               <p className="text-red-100 mb-6">
-                Most creators make at least 5-7 of these mistakes without realizing it. The good news? They're all fixable! 
+                Most creators make at least 5-7 of these mistakes without realizing it. The good news? They're all fixable!
                 Start with the quick wins, then work your way through the list. Your Reels performance will improve dramatically.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link 
+                <Link
                   href="/"
                   className="inline-flex items-center justify-center gap-2 bg-white text-red-600 px-6 py-3 rounded-xl font-bold hover:bg-red-50 transition-colors"
                 >
                   <Video className="w-5 h-5" />
                   Try ReelGrab Free
                 </Link>
-                <Link 
+                <Link
                   href="/blog"
                   className="inline-flex items-center justify-center gap-2 bg-red-500 text-white px-6 py-3 rounded-xl font-bold hover:bg-red-400 transition-colors border-2 border-red-400"
                 >

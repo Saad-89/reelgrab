@@ -48,8 +48,12 @@ export default function BestEditingAppsPage() {
             </div>
           </div>
 
-          <div className="h-96 bg-gradient-to-br from-green-500 to-teal-600 rounded-2xl flex items-center justify-center mb-12">
-            <span className="text-9xl">🎬</span>
+          <div className="mb-12 rounded-2xl overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=900&auto=format&fit=crop&q=80"
+              alt="Video editing setup with monitor and timeline"
+              className="w-full h-80 object-cover"
+            />
           </div>
 
           <div className="prose prose-lg max-w-none">
@@ -192,7 +196,7 @@ export default function BestEditingAppsPage() {
             </p>
 
             <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Tips for Choosing the Right App</h2>
-            
+
             <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Consider Your Skill Level</h3>
             <p className="text-gray-700 leading-relaxed mb-6">
               If you're new to video editing, start with user-friendly options like CapCut or InShot. As you become more comfortable, you can graduate to more advanced apps like KineMaster or Adobe Premiere Rush.
@@ -209,7 +213,7 @@ export default function BestEditingAppsPage() {
             </p>
 
             <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Essential Editing Techniques for Instagram Reels</h2>
-            
+
             <p className="text-gray-700 leading-relaxed mb-6">
               Regardless of which app you choose, here are some essential techniques to master:
             </p>
@@ -232,8 +236,8 @@ export default function BestEditingAppsPage() {
               <p className="text-gray-700 mb-6">
                 The best editing app is the one you'll actually use. Download a few options, try them out, and stick with the one that feels right for your workflow. Remember, great content matters more than perfect editing.
               </p>
-              <Link 
-                href="/" 
+              <Link
+                href="/"
                 className="inline-block bg-green-600 text-white font-semibold px-8 py-3 rounded-xl hover:bg-green-700 transition-all"
               >
                 Download Reels for Inspiration

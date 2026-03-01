@@ -49,27 +49,27 @@ export default function CopyrightLawBlogPost() {
             </div>
           </div>
 
-          <div className="h-96 bg-gradient-to-br from-red-500 to-pink-600 rounded-2xl flex items-center justify-center mb-12">
-            <span className="text-9xl">⚖️</span>
+          <div className="mb-12 rounded-2xl overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1589578228447-e1a4e481c6c8?w=900&auto=format&fit=crop&q=80" alt="Legal documents and copyright law books" className="w-full h-80 object-cover" />
           </div>
 
           <div className="prose prose-lg max-w-none">
-            
+
             <div className="bg-red-50 rounded-2xl p-8 mb-12 border-2 border-red-200">
               <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
                 <AlertTriangle className="w-6 h-6 text-red-600" />
                 Why This Matters
               </h3>
               <p className="text-gray-700 leading-relaxed">
-                As an Instagram creator, understanding copyright law isn't optional—it's essential. One copyright strike can shut down your account. 
+                As an Instagram creator, understanding copyright law isn't optional—it's essential. One copyright strike can shut down your account.
                 One lawsuit can cost thousands of dollars. This guide will teach you everything you need to know to create content legally and protect your own work.
               </p>
             </div>
 
             <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">What is Copyright?</h2>
-            
+
             <p className="text-gray-700 leading-relaxed mb-6">
-              Copyright is a form of intellectual property protection that gives creators exclusive rights to their original works. 
+              Copyright is a form of intellectual property protection that gives creators exclusive rights to their original works.
               The moment you create original content—whether it's a photo, video, music, or text—you automatically own the copyright to it.
             </p>
 
@@ -85,7 +85,7 @@ export default function CopyrightLawBlogPost() {
             <div className="bg-blue-50 rounded-2xl p-8 mb-12">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Quick Fact</h3>
               <p className="text-gray-700 leading-relaxed">
-                You don't need to register your work or include a © symbol for it to be copyrighted. Copyright protection is automatic from the moment of creation. 
+                You don't need to register your work or include a © symbol for it to be copyrighted. Copyright protection is automatic from the moment of creation.
                 However, registration with the U.S. Copyright Office provides additional legal benefits if you ever need to sue for infringement.
               </p>
             </div>
@@ -94,7 +94,7 @@ export default function CopyrightLawBlogPost() {
 
             <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Who Owns Instagram Content?</h3>
             <p className="text-gray-700 leading-relaxed mb-6">
-              This is crucial to understand: <strong>YOU own the copyright to content you create and post on Instagram.</strong> Instagram's terms of service don't 
+              This is crucial to understand: <strong>YOU own the copyright to content you create and post on Instagram.</strong> Instagram's terms of service don't
               transfer ownership to them. However, by posting, you do grant Instagram a license to use, distribute, and display your content on their platform.
             </p>
 
@@ -114,7 +114,7 @@ export default function CopyrightLawBlogPost() {
             </p>
 
             <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">The Four Fair Use Factors</h3>
-            
+
             <p className="text-gray-700 leading-relaxed mb-4">
               Courts consider four factors when determining fair use:
             </p>
@@ -170,7 +170,7 @@ export default function CopyrightLawBlogPost() {
                 Important Warning
               </h3>
               <p className="text-gray-700 leading-relaxed">
-                <strong>Fair use is a legal defense, not a right.</strong> It only matters if you're sued and go to court. Instagram and other platforms can still remove your content 
+                <strong>Fair use is a legal defense, not a right.</strong> It only matters if you're sued and go to court. Instagram and other platforms can still remove your content
                 or ban your account even if you believe it's fair use. Always get permission when possible.
               </p>
             </div>
@@ -293,7 +293,7 @@ export default function CopyrightLawBlogPost() {
                 Best Practice
               </h3>
               <p className="text-gray-700 leading-relaxed">
-                If you download content for inspiration or analysis, keep it private. Use it to study techniques, understand trends, and improve your own work. 
+                If you download content for inspiration or analysis, keep it private. Use it to study techniques, understand trends, and improve your own work.
                 Never republish or share downloaded content without explicit permission from the creator. When in doubt, ask for permission—most creators are happy to help!
               </p>
             </div>
@@ -360,18 +360,18 @@ export default function CopyrightLawBlogPost() {
             <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-white mt-12">
               <h2 className="text-2xl font-bold mb-4">Stay Legally Compliant</h2>
               <p className="text-blue-100 mb-6">
-                Understanding copyright law protects both you and other creators. When in doubt, create original content or get explicit permission. 
+                Understanding copyright law protects both you and other creators. When in doubt, create original content or get explicit permission.
                 Your Instagram account and creative career are too valuable to risk on copyright violations.
               </p>
               <div className="flex gap-4">
-                <Link 
-                  href="/disclaimer" 
+                <Link
+                  href="/disclaimer"
                   className="inline-block bg-white text-blue-600 font-semibold px-6 py-3 rounded-xl hover:bg-blue-50 transition-all"
                 >
                   Read Our Disclaimer
                 </Link>
-                <Link 
-                  href="/blog" 
+                <Link
+                  href="/blog"
                   className="inline-block bg-blue-500 text-white font-semibold px-6 py-3 rounded-xl hover:bg-blue-400 transition-all"
                 >
                   More Legal Guides

@@ -48,8 +48,8 @@ export default function ContentIdeas2025Page() {
             </div>
           </div>
 
-          <div className="h-96 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center mb-12">
-            <span className="text-9xl">💡</span>
+          <div className="mb-12 rounded-2xl overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1512314889357-e157c22f938d?w=900&auto=format&fit=crop&q=80" alt="Notebook with creative content ideas" className="w-full h-80 object-cover" />
           </div>
 
           <div className="prose prose-lg max-w-none">
@@ -207,8 +207,8 @@ export default function ContentIdeas2025Page() {
               <p className="text-gray-700 mb-6">
                 Save this list and refer back to it whenever you need inspiration. Mix different content types, stay authentic, and remember that consistency matters more than perfection.
               </p>
-              <Link 
-                href="/" 
+              <Link
+                href="/"
                 className="inline-block bg-emerald-600 text-white font-semibold px-8 py-3 rounded-xl hover:bg-emerald-700 transition-all"
               >
                 Download Reels for Inspiration

@@ -54,17 +54,17 @@ export default function GrowInstagramPost() {
             </div>
           </div>
 
-          <div className="h-96 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-12">
-            <span className="text-9xl">📈</span>
+          <div className="mb-12 rounded-2xl overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=900&auto=format&fit=crop&q=80" alt="Instagram follower growth analytics on phone" className="w-full h-80 object-cover" />
           </div>
 
           <div className="prose prose-lg max-w-none">
-            
+
             <div className="bg-blue-50 rounded-2xl p-8 mb-12 border-2 border-blue-200">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">The Truth About Instagram Growth in 2025</h3>
               <p className="text-gray-700 leading-relaxed">
-                Growing on Instagram is still possible in 2025, but the strategies have evolved. This comprehensive guide reveals exactly what works now: 
-                from content strategy to engagement tactics, algorithm optimization to community building. Follow this roadmap to build real, engaged followers 
+                Growing on Instagram is still possible in 2025, but the strategies have evolved. This comprehensive guide reveals exactly what works now:
+                from content strategy to engagement tactics, algorithm optimization to community building. Follow this roadmap to build real, engaged followers
                 who care about your content.
               </p>
             </div>
@@ -93,9 +93,9 @@ export default function GrowInstagramPost() {
             <div className="bg-purple-50 rounded-xl p-6 mb-8">
               <h4 className="text-lg font-bold text-gray-900 mb-3">Bio Formula That Converts:</h4>
               <p className="text-gray-700 mb-2">
-                [What you do] for [target audience]<br/>
-                [Main value proposition]<br/>
-                [Social proof/credibility]<br/>
+                [What you do] for [target audience]<br />
+                [Main value proposition]<br />
+                [Social proof/credibility]<br />
                 [Call-to-action] 👇
               </p>
               <p className="text-sm text-gray-600 mt-4">
@@ -361,7 +361,7 @@ export default function GrowInstagramPost() {
 
             <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 mb-8">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Follow This 30-Day Plan</h3>
-              
+
               <div className="space-y-6 text-gray-700">
                 <div>
                   <h4 className="font-bold mb-2">Week 1: Foundation</h4>
@@ -445,18 +445,18 @@ export default function GrowInstagramPost() {
               </ul>
             </div>
 
-                        <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white mt-12">
-                          <h2 className="text-2xl font-bold mb-4">Start Growing Today</h2>
-                          <p className="text-blue-100 mb-6">
-                            Instagram growth in 2025 is about providing value, being consistent, and building genuine connections. Start with the 30-day sprint, 
-                            focus on Reels, and engage authentically with your community.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-            
-                  <Footer />
-                </main>
-              );
-            }
+            <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white mt-12">
+              <h2 className="text-2xl font-bold mb-4">Start Growing Today</h2>
+              <p className="text-blue-100 mb-6">
+                Instagram growth in 2025 is about providing value, being consistent, and building genuine connections. Start with the 30-day sprint,
+                focus on Reels, and engage authentically with your community.
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <Footer />
+    </main>
+  );
+}

@@ -42,8 +42,8 @@ export default function InstagramNicheSelectionGuide2025() {
             </p>
           </div>
 
-          <div className="h-96 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center mb-12">
-            <span className="text-9xl">🎯</span>
+          <div className="mb-12 rounded-2xl overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=900&auto=format&fit=crop&q=80" alt="Person researching and selecting a profitable niche" className="w-full h-80 object-cover" />
           </div>
 
           <div className="prose prose-lg max-w-none">
@@ -61,7 +61,7 @@ export default function InstagramNicheSelectionGuide2025() {
             </div>
 
             <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Chapter 1: Understanding Niches</h2>
-            
+
             <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">What is a Niche?</h3>
             <p className="text-gray-700 leading-relaxed mb-6">
               A niche is a specialized segment of a larger market. On Instagram, your niche is the specific topic, industry, or interest area you focus your content on. Instead of being a general "lifestyle" account, you might be a "sustainable fashion for working moms" account—that's your niche.
@@ -210,7 +210,7 @@ export default function InstagramNicheSelectionGuide2025() {
             </ul>
 
             <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Validation Methods</h3>
-            
+
             <h4 className="text-xl font-bold text-gray-900 mt-6 mb-3">1. Content Testing</h4>
             <p className="text-gray-700 leading-relaxed mb-6">
               Post 10-15 pieces of content in your potential niche and measure:
@@ -325,7 +325,7 @@ export default function InstagramNicheSelectionGuide2025() {
             </p>
 
             <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Differentiation Strategies</h3>
-            
+
             <h4 className="text-xl font-bold text-gray-900 mt-6 mb-3">1. Micro-Niching</h4>
             <p className="text-gray-700 leading-relaxed mb-6">
               Go deeper into a specific area:
@@ -441,14 +441,14 @@ export default function InstagramNicheSelectionGuide2025() {
                 Choosing the right niche is one of the most important decisions you'll make for your Instagram success. Take time to research, validate, and position yourself strategically. Remember, the best niche is one you're passionate about, knowledgeable in, and can sustain long-term. Start your niche selection journey today.
               </p>
               <div className="flex gap-4">
-                <Link 
-                  href="/" 
+                <Link
+                  href="/"
                   className="inline-block bg-indigo-600 text-white font-semibold px-8 py-3 rounded-xl hover:bg-indigo-700 transition-all"
                 >
                   Download Reels for Study
                 </Link>
-                <Link 
-                  href="/guides" 
+                <Link
+                  href="/guides"
                   className="inline-block bg-white border-2 border-indigo-600 text-indigo-600 font-semibold px-8 py-3 rounded-xl hover:bg-indigo-50 transition-all"
                 >
                   More Guides

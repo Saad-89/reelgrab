@@ -104,8 +104,12 @@ export default function InstagramStoriesMastery2025() {
             </p>
           </div>
 
-          <div className="h-96 bg-gradient-to-br from-pink-500 to-purple-600 rounded-2xl flex items-center justify-center mb-12">
-            <span className="text-9xl">📸</span>
+          <div className="mb-12 rounded-2xl overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1596638787647-904d822d751e?w=900&auto=format&fit=crop&q=80"
+              alt="Person using Instagram Stories on a smartphone"
+              className="w-full h-80 object-cover"
+            />
           </div>
 
           <div className="prose prose-lg max-w-none">
@@ -123,7 +127,7 @@ export default function InstagramStoriesMastery2025() {
             </div>
 
             <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Chapter 1: Understanding Instagram Stories</h2>
-            
+
             <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">What Are Instagram Stories?</h3>
             <p className="text-gray-700 leading-relaxed mb-6">
               Instagram Stories are temporary photos and videos that disappear after 24 hours. Since their launch in 2016, Stories have become one of Instagram's most engaging features, with over 500 million daily active users. Unlike regular posts, Stories appear at the top of users' feeds and offer a more casual, authentic way to connect with your audience.
@@ -503,14 +507,14 @@ export default function InstagramStoriesMastery2025() {
                 Instagram Stories are one of the most powerful tools for building engagement and growing your business. Start implementing these strategies today, measure what works, and continuously optimize. The key is consistency and authenticity—show up daily and provide value to your audience.
               </p>
               <div className="flex gap-4">
-                <Link 
-                  href="/" 
+                <Link
+                  href="/"
                   className="inline-block bg-pink-600 text-white font-semibold px-8 py-3 rounded-xl hover:bg-pink-700 transition-all"
                 >
                   Download Reels for Study
                 </Link>
-                <Link 
-                  href="/guides" 
+                <Link
+                  href="/guides"
                   className="inline-block bg-white border-2 border-pink-600 text-pink-600 font-semibold px-8 py-3 rounded-xl hover:bg-pink-50 transition-all"
                 >
                   More Guides

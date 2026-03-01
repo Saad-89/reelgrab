@@ -54,17 +54,17 @@ export default function BrandPartnershipsPost() {
             </div>
           </div>
 
-          <div className="h-96 bg-gradient-to-br from-green-500 via-teal-500 to-blue-500 rounded-2xl flex items-center justify-center mb-12">
-            <span className="text-9xl">🤝</span>
+          <div className="mb-12 rounded-2xl overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=900&auto=format&fit=crop&q=80" alt="Brand partnership and business collaboration" className="w-full h-80 object-cover" />
           </div>
 
           <div className="prose prose-lg max-w-none">
-            
+
             <div className="bg-green-50 rounded-2xl p-8 mb-12 border-2 border-green-200">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Why Brand Partnerships Matter</h3>
               <p className="text-gray-700 leading-relaxed">
-                Brand partnerships are one of the most lucrative ways to monetize your Instagram presence. Whether you have 5K or 500K followers, 
-                brands are looking for authentic creators to promote their products. This guide walks you through every step—from finding brands 
+                Brand partnerships are one of the most lucrative ways to monetize your Instagram presence. Whether you have 5K or 500K followers,
+                brands are looking for authentic creators to promote their products. This guide walks you through every step—from finding brands
                 to negotiating rates and delivering successful campaigns that lead to ongoing partnerships.
               </p>
             </div>
@@ -73,7 +73,7 @@ export default function BrandPartnershipsPost() {
 
             <div className="bg-blue-50 rounded-xl p-6 mb-8">
               <h4 className="text-lg font-bold text-gray-900 mb-3">Requirements for Most Brands:</h4>
-              
+
               <div className="space-y-3 text-gray-700">
                 <p><strong>✅ Minimum 1,000 Followers:</strong> Nano-influencer tier begins here</p>
                 <p><strong>✅ Engaged Audience:</strong> 2-5% engagement rate minimum</p>
@@ -82,7 +82,7 @@ export default function BrandPartnershipsPost() {
                 <p><strong>✅ Professional Profile:</strong> Bio, quality content, business account</p>
                 <p><strong>✅ Authentic Voice:</strong> Genuine connection with followers</p>
               </div>
-              
+
               <p className="text-sm text-blue-600 mt-4">
                 <strong>Remember:</strong> Engagement rate matters more than follower count!
               </p>
@@ -92,33 +92,33 @@ export default function BrandPartnershipsPost() {
 
             <div className="bg-white rounded-xl border-2 border-purple-200 p-6 mb-8">
               <h4 className="text-lg font-bold text-gray-900 mb-3">Partnership Models:</h4>
-              
+
               <div className="space-y-4 text-gray-700">
                 <div>
                   <p className="font-bold mb-1">💵 Paid Partnerships</p>
                   <p className="text-sm">Cash payment for content creation. Most common for established creators.</p>
                 </div>
-                
+
                 <div>
                   <p className="font-bold mb-1">🎁 Gifted Collaborations</p>
                   <p className="text-sm">Free products in exchange for posts. Good for starting out or products you love.</p>
                 </div>
-                
+
                 <div>
                   <p className="font-bold mb-1">💰 Affiliate Marketing</p>
                   <p className="text-sm">Earn commission on sales through your unique link. Passive income potential.</p>
                 </div>
-                
+
                 <div>
                   <p className="font-bold mb-1">🤝 Ambassador Programs</p>
                   <p className="text-sm">Ongoing relationship with monthly or quarterly agreements.</p>
                 </div>
-                
+
                 <div>
                   <p className="font-bold mb-1">🎯 Performance-Based</p>
                   <p className="text-sm">Payment based on clicks, conversions, or engagement metrics.</p>
                 </div>
-                
+
                 <div>
                   <p className="font-bold mb-1">📸 Content Licensing</p>
                   <p className="text-sm">Brands pay to use your content on their channels.</p>
@@ -134,7 +134,7 @@ export default function BrandPartnershipsPost() {
               <p className="text-gray-700 mb-4">
                 Don't wait for brands to find you—pitch them proactively!
               </p>
-              
+
               <div className="space-y-3 text-gray-700">
                 <p className="font-bold">Step-by-Step Process:</p>
                 <ol className="text-sm ml-4 space-y-2">
@@ -151,7 +151,7 @@ export default function BrandPartnershipsPost() {
 
             <div className="bg-yellow-50 rounded-xl p-6 mb-8">
               <h4 className="text-lg font-bold text-gray-900 mb-3">Top Platforms to Join:</h4>
-              
+
               <div className="space-y-3 text-gray-700 text-sm">
                 <p><strong>AspireIQ (Aspire):</strong> Connect with brands, manage campaigns</p>
                 <p><strong>GRIN:</strong> For established influencers, high-quality brands</p>
@@ -181,7 +181,7 @@ export default function BrandPartnershipsPost() {
 
             <div className="bg-white rounded-xl border-2 border-blue-200 p-6 mb-8">
               <h4 className="text-lg font-bold text-gray-900 mb-3">Essential Media Kit Components:</h4>
-              
+
               <div className="space-y-4 text-gray-700">
                 <div>
                   <p className="font-bold">Page 1: Introduction</p>
@@ -192,7 +192,7 @@ export default function BrandPartnershipsPost() {
                     <li>• Your niche and content style</li>
                   </ul>
                 </div>
-                
+
                 <div>
                   <p className="font-bold">Page 2: Statistics</p>
                   <ul className="text-sm ml-4 mt-1 space-y-1">
@@ -202,7 +202,7 @@ export default function BrandPartnershipsPost() {
                     <li>• Audience demographics (age, location, gender)</li>
                   </ul>
                 </div>
-                
+
                 <div>
                   <p className="font-bold">Page 3: Portfolio</p>
                   <ul className="text-sm ml-4 mt-1 space-y-1">
@@ -211,7 +211,7 @@ export default function BrandPartnershipsPost() {
                     <li>• Testimonials if available</li>
                   </ul>
                 </div>
-                
+
                 <div>
                   <p className="font-bold">Page 4: Services & Rates</p>
                   <ul className="text-sm ml-4 mt-1 space-y-1">
@@ -227,14 +227,14 @@ export default function BrandPartnershipsPost() {
 
             <div className="bg-green-50 rounded-xl p-6 mb-8">
               <h4 className="text-lg font-bold text-gray-900 mb-3">General Pricing Guidelines:</h4>
-              
+
               <div className="space-y-3 text-gray-700 text-sm">
                 <p><strong>Nano (1K-10K followers):</strong> $50-$500 per post</p>
                 <p><strong>Micro (10K-50K followers):</strong> $500-$2,000 per post</p>
                 <p><strong>Mid-tier (50K-100K followers):</strong> $2,000-$5,000 per post</p>
                 <p><strong>Macro (100K-500K followers):</strong> $5,000-$15,000 per post</p>
                 <p><strong>Mega (500K+ followers):</strong> $15,000+ per post</p>
-                
+
                 <p className="text-green-600 mt-4">
                   <strong>Formula:</strong> (Followers ÷ 1,000) × $100 = Base rate
                 </p>
@@ -262,23 +262,23 @@ export default function BrandPartnershipsPost() {
 
             <div className="bg-purple-50 rounded-xl p-6 mb-8">
               <h4 className="text-lg font-bold text-gray-900 mb-3">Pitch Email Template:</h4>
-              
+
               <div className="bg-white p-4 rounded-lg text-gray-700 text-sm space-y-3">
                 <p><strong>Subject:</strong> Collaboration Opportunity: [Your Name] × [Brand Name]</p>
-                
+
                 <p><strong>Hi [Contact Name],</strong></p>
-                
+
                 <p>I'm [Your Name], a [your niche] content creator on Instagram with [X] followers and an average engagement rate of [Y]%.</p>
-                
+
                 <p>I've been a loyal customer of [Brand Name] for [time period] and absolutely love [specific product]. My audience of [demographic] aligns perfectly with your target market, and I'd love to create authentic content featuring your products.</p>
-                
+
                 <p>My recent partnership with [Similar Brand] generated [specific results: X engagements, Y clicks, etc.]. I believe we could achieve similar or better results together.</p>
-                
+
                 <p>I've attached my media kit for your review. I'd be thrilled to discuss how we can collaborate. Are you available for a brief call next week?</p>
-                
+
                 <p>Looking forward to hearing from you!</p>
-                
-                <p><strong>Best,</strong><br/>[Your Name]<br/>[Instagram Handle]<br/>[Email] | [Phone]</p>
+
+                <p><strong>Best,</strong><br />[Your Name]<br />[Instagram Handle]<br />[Email] | [Phone]</p>
               </div>
             </div>
 
@@ -286,7 +286,7 @@ export default function BrandPartnershipsPost() {
 
             <div className="bg-orange-50 rounded-xl p-6 mb-8">
               <h4 className="text-lg font-bold text-gray-900 mb-3">Negotiation Tips:</h4>
-              
+
               <ul className="space-y-3 text-gray-700">
                 <li><strong>✓ Know your worth:</strong> Don't undersell yourself</li>
                 <li><strong>✓ Start higher:</strong> Leave room for negotiation</li>
@@ -303,7 +303,7 @@ export default function BrandPartnershipsPost() {
 
             <div className="bg-white rounded-xl border-2 border-pink-200 p-6 mb-8">
               <h4 className="text-lg font-bold text-gray-900 mb-3">What Every Contract Should Include:</h4>
-              
+
               <ul className="space-y-2 text-gray-700 text-sm">
                 <li>□ Scope of work (number of posts, platforms)</li>
                 <li>□ Deliverables and deadlines</li>
@@ -322,7 +322,7 @@ export default function BrandPartnershipsPost() {
 
             <div className="bg-blue-50 rounded-xl p-6 mb-8">
               <h4 className="text-lg font-bold text-gray-900 mb-3">Best Practices for Sponsored Posts:</h4>
-              
+
               <div className="space-y-3 text-gray-700">
                 <p><strong>🎯 Stay Authentic:</strong> Only promote products you believe in</p>
                 <p><strong>📖 Tell a Story:</strong> Show how the product fits into your life</p>
@@ -339,7 +339,7 @@ export default function BrandPartnershipsPost() {
 
             <div className="bg-red-50 rounded-xl p-6 mb-8">
               <h4 className="text-lg font-bold text-gray-900 mb-3">Legal Requirements:</h4>
-              
+
               <ul className="space-y-2 text-gray-700">
                 <li><strong>✓ Disclose clearly and conspicuously:</strong> Don't hide it</li>
                 <li><strong>✓ Use #ad or #sponsored:</strong> At the beginning of caption</li>
@@ -348,7 +348,7 @@ export default function BrandPartnershipsPost() {
                 <li><strong>✓ Verbal disclosure in videos:</strong> "This video is sponsored by..."</li>
                 <li><strong>✓ Don't use vague terms:</strong> #partner or #collab aren't enough</li>
               </ul>
-              
+
               <p className="text-sm text-red-600 mt-4">
                 <strong>Important:</strong> Non-disclosure can result in fines and loss of brand trust
               </p>
@@ -358,7 +358,7 @@ export default function BrandPartnershipsPost() {
 
             <div className="bg-green-50 rounded-xl p-6 mb-8">
               <h4 className="text-lg font-bold text-gray-900 mb-3">Turn One-Off Deals into Ongoing Relationships:</h4>
-              
+
               <ol className="space-y-2 text-gray-700">
                 <li><strong>1. Over-deliver:</strong> Exceed expectations on every campaign</li>
                 <li><strong>2. Provide analytics:</strong> Share results and insights after posting</li>
@@ -415,18 +415,18 @@ export default function BrandPartnershipsPost() {
             <div className="bg-gradient-to-r from-green-600 to-teal-600 rounded-2xl p-8 text-white mt-12">
               <h2 className="text-2xl font-bold mb-4">Start Landing Brand Deals</h2>
               <p className="text-green-100 mb-6">
-                Brand partnerships are within reach, regardless of your follower count. Focus on building authentic connections with your audience, 
+                Brand partnerships are within reach, regardless of your follower count. Focus on building authentic connections with your audience,
                 creating quality content, and approaching the right brands strategically. Your first deal is closer than you think!
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link 
+                <Link
                   href="/"
                   className="inline-flex items-center justify-center gap-2 bg-white text-green-600 px-6 py-3 rounded-xl font-bold hover:bg-green-50 transition-colors"
                 >
                   <Video className="w-5 h-5" />
                   Try ReelGrab Free
                 </Link>
-                <Link 
+                <Link
                   href="/blog"
                   className="inline-flex items-center justify-center gap-2 bg-green-500 text-white px-6 py-3 rounded-xl font-bold hover:bg-green-400 transition-colors border-2 border-green-400"
                 >

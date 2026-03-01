@@ -49,16 +49,16 @@ export default function ReelsHooksPost() {
             </div>
           </div>
 
-          <div className="h-96 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mb-12">
-            <span className="text-9xl">🎣</span>
+          <div className="mb-12 rounded-2xl overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=900&auto=format&fit=crop&q=80" alt="Filming a video hook for Instagram Reels" className="w-full h-80 object-cover" />
           </div>
 
           <div className="prose prose-lg max-w-none">
-            
+
             <div className="bg-orange-50 rounded-2xl p-8 mb-12 border-2 border-orange-200">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Why Hooks Matter</h3>
               <p className="text-gray-700 leading-relaxed">
-                You have 0.5-2 seconds to stop someone from scrolling past your Reel. A strong hook is the difference between a viral video and one that gets ignored. 
+                You have 0.5-2 seconds to stop someone from scrolling past your Reel. A strong hook is the difference between a viral video and one that gets ignored.
                 This guide gives you 50+ proven hook formulas that consistently grab attention and increase watch time.
               </p>
             </div>
@@ -329,18 +329,18 @@ export default function ReelsHooksPost() {
             <div className="bg-gradient-to-r from-orange-600 to-red-600 rounded-2xl p-8 text-white mt-12">
               <h2 className="text-2xl font-bold mb-4">Start Using These Hooks Today</h2>
               <p className="text-orange-100 mb-6">
-                The difference between a viral Reel and one that flops often comes down to the first 2 seconds. Save this guide, test these hook formulas, 
+                The difference between a viral Reel and one that flops often comes down to the first 2 seconds. Save this guide, test these hook formulas,
                 and watch your view counts soar. Remember: a great hook + valuable content = Instagram success!
               </p>
               <div className="flex gap-4">
-                <Link 
-                  href="/guides/video-content-creation-guide" 
+                <Link
+                  href="/guides/video-content-creation-guide"
                   className="inline-block bg-white text-orange-600 font-semibold px-6 py-3 rounded-xl hover:bg-orange-50 transition-all"
                 >
                   Video Creation Guide
                 </Link>
-                <Link 
-                  href="/blog" 
+                <Link
+                  href="/blog"
                   className="inline-block bg-orange-500 text-white font-semibold px-6 py-3 rounded-xl hover:bg-orange-400 transition-all"
                 >
                   More Content Tips

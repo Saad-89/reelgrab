@@ -54,16 +54,16 @@ export default function InstagramAnalyticsPost() {
             </div>
           </div>
 
-          <div className="h-96 bg-gradient-to-br from-green-500 via-teal-500 to-blue-500 rounded-2xl flex items-center justify-center mb-12">
-            <span className="text-9xl">📊</span>
+          <div className="mb-12 rounded-2xl overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&auto=format&fit=crop&q=80" alt="Instagram analytics data on dashboard" className="w-full h-80 object-cover" />
           </div>
 
           <div className="prose prose-lg max-w-none">
-            
+
             <div className="bg-green-50 rounded-2xl p-8 mb-12 border-2 border-green-200">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Why Analytics Matter</h3>
               <p className="text-gray-700 leading-relaxed">
-                Instagram Analytics turn guesswork into strategy. Understanding your data reveals what content resonates, when your audience is active, 
+                Instagram Analytics turn guesswork into strategy. Understanding your data reveals what content resonates, when your audience is active,
                 and how to optimize for growth. This masterclass teaches you to read every metric, identify trends, and make decisions that drive real results.
               </p>
             </div>
@@ -91,7 +91,7 @@ export default function InstagramAnalyticsPost() {
 
             <div className="bg-white rounded-xl border-2 border-purple-200 p-6 mb-6">
               <p className="text-gray-700 mb-4">
-                <strong>Reach:</strong> The number of unique accounts that saw your content<br/>
+                <strong>Reach:</strong> The number of unique accounts that saw your content<br />
                 <strong>Impressions:</strong> Total number of times your content was viewed (including multiple views from same user)
               </p>
               <h4 className="font-bold text-gray-900 mb-2">What It Tells You:</h4>
@@ -118,7 +118,7 @@ export default function InstagramAnalyticsPost() {
               </ul>
               <div className="bg-pink-50 rounded p-4 mt-4">
                 <p className="text-sm text-gray-700">
-                  <strong>Formula:</strong> (Total Engagements ÷ Reach) × 100<br/>
+                  <strong>Formula:</strong> (Total Engagements ÷ Reach) × 100<br />
                   Example: 500 engagements ÷ 10,000 reach = 5% engagement rate
                 </p>
               </div>
@@ -186,7 +186,7 @@ export default function InstagramAnalyticsPost() {
               <h4 className="font-bold text-gray-900 mb-2">Growth Rate Formula:</h4>
               <div className="bg-indigo-50 rounded p-4 mb-3">
                 <p className="text-sm text-gray-700">
-                  (New Followers - Lost Followers) ÷ Total Followers × 100<br/>
+                  (New Followers - Lost Followers) ÷ Total Followers × 100<br />
                   Example: (100 - 20) ÷ 1,000 × 100 = 8% monthly growth
                 </p>
               </div>
@@ -419,18 +419,18 @@ export default function InstagramAnalyticsPost() {
             <div className="bg-gradient-to-r from-green-600 to-teal-600 rounded-2xl p-8 text-white mt-12">
               <h2 className="text-2xl font-bold mb-4">Start Making Data-Driven Decisions</h2>
               <p className="text-green-100 mb-6">
-                Instagram Analytics are your roadmap to growth. Check your insights today, identify your top-performing content, and create more of what your audience loves. 
+                Instagram Analytics are your roadmap to growth. Check your insights today, identify your top-performing content, and create more of what your audience loves.
                 The difference between creators who grow and those who don't is simple: using data to guide strategy.
               </p>
               <div className="flex gap-4">
-                <Link 
-                  href="/blog/instagram-algorithm-2025" 
+                <Link
+                  href="/blog/instagram-algorithm-2025"
                   className="inline-block bg-white text-green-600 font-semibold px-6 py-3 rounded-xl hover:bg-green-50 transition-all"
                 >
                   Understand the Algorithm
                 </Link>
-                <Link 
-                  href="/blog" 
+                <Link
+                  href="/blog"
                   className="inline-block bg-green-500 text-white font-semibold px-6 py-3 rounded-xl hover:bg-green-400 transition-all"
                 >
                   More Growth Tips

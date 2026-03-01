@@ -42,8 +42,8 @@ export default function InstagramReelsGuideBeginners() {
             </p>
           </div>
 
-          <div className="h-96 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-12">
-            <span className="text-9xl">📱</span>
+          <div className="mb-12 rounded-2xl overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=900&auto=format&fit=crop&q=80" alt="Beginner creating their first Instagram Reels on smartphone" className="w-full h-80 object-cover" />
           </div>
 
           <div className="prose prose-lg max-w-none">
@@ -61,7 +61,7 @@ export default function InstagramReelsGuideBeginners() {
             </div>
 
             <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Chapter 1: Understanding Instagram Reels</h2>
-            
+
             <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">What Are Instagram Reels?</h3>
             <p className="text-gray-700 leading-relaxed mb-6">
               Instagram Reels are short-form vertical videos that can be up to 90 seconds long. Launched in 2020 as Instagram's answer to TikTok, Reels have become the platform's primary content format and offer the highest potential reach of any Instagram feature.
@@ -306,14 +306,14 @@ export default function InstagramReelsGuideBeginners() {
                 The best way to learn is by doing. Don't wait for perfection—post your first Reel today, learn from the experience, and keep improving. Every successful creator started exactly where you are now.
               </p>
               <div className="flex gap-4">
-                <Link 
-                  href="/" 
+                <Link
+                  href="/"
                   className="inline-block bg-blue-600 text-white font-semibold px-8 py-3 rounded-xl hover:bg-blue-700 transition-all"
                 >
                   Download Reels for Study
                 </Link>
-                <Link 
-                  href="/blog" 
+                <Link
+                  href="/blog"
                   className="inline-block bg-white border-2 border-blue-600 text-blue-600 font-semibold px-8 py-3 rounded-xl hover:bg-blue-50 transition-all"
                 >
                   Read More Tips
